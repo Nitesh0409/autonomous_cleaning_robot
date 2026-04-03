@@ -3,7 +3,7 @@
 <package format="3">
   <name>robot</name>
   <version>0.0.1</version>
-  <description>Professional Tactical Navigation Suite for Holonomic Mecanum Robots, featuring A*, FGM, and APF implementations.</description>
+  <description>Artificial Potential Field (APF) local navigation for holonomic Mecanum-wheeled robots using ROS 2.</description>
   <maintainer email="robot_user@example.com">Robot Maintainer</maintainer>
   <license>MIT</license>
 
@@ -11,13 +11,7 @@
   <depend>sensor_msgs</depend>
   <depend>geometry_msgs</depend>
   <depend>nav_msgs</depend>
-  <depend>tf2_ros</depend>
-  <depend>visualization_msgs</depend>
-
-  <test_depend>ament_copyright</test_depend>
-  <test_depend>ament_flake8</test_depend>
-  <test_depend>ament_pep257</test_depend>
-  <test_depend>python3-pytest</test_depend>
+  <depend>numpy</depend>
 
   <export>
     <build_type>ament_python</build_type>
