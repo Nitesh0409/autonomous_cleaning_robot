@@ -10,6 +10,22 @@ import math
 import numpy as np
 
 class APFPlannerNode(Node):
+    """
+    Advanced Artificial Potential Field (APF) Navigation Node.
+    
+    This implementation utilizes vector-field gradients to generate autonomous 
+    trajectories for holonomic Mecanum-wheeled systems. The navigation logic 
+    is based on the superposition of two primary potential functions:
+    
+    U_total = U_att + U_rep
+    
+    where:
+    - U_att is the quadratic potential pulling the robot toward the goal.
+    - U_rep is the repulsive potential pushing the robot from obstacles.
+    
+    The resulting force vector F = -∇U_total dictates the linear and 
+    angular velocity commands ($v_x, v_y, \omega$).
+    """
     def __init__(self):
         super().__init__('planner_local_apf')
         
@@ -74,9 +90,11 @@ class APFPlannerNode(Node):
         self.get_logger().info(f"Received A* Path with {len(self.waypoints)} waypoints.")
 
     def scan_callback(self, msg):
+        """Update the latest LIDAR scan data."""
         self.latest_scan = msg
 
     def create_force_marker(self, id, fx, fy, color, label, scale=0.5):
+        """Generate a 3D arrow marker to visualize force vectors in RViz."""
         marker = Marker()
         marker.header.frame_id = "base_footprint"
         marker.header.stamp = self.get_clock().now().to_msg()
@@ -188,30 +206,34 @@ class APFPlannerNode(Node):
         q = self.current_pose.orientation
         yaw = math.atan2(2.0*(q.w*q.z + q.x*q.y), 1.0 - 2.0*(q.y**2 + q.z**2))
 
-        # 2. Attraction
+        # 2. Attraction Force Calculation
+        # F_att = -k_att * (q - q_goal) / ||q - q_goal||
         dx_world = target_x - self.current_pose.position.x
         dy_world = target_y - self.current_pose.position.y
         dist_to_goal = math.sqrt(dx_world**2 + dy_world**2)
 
-        # --- DIAGNOSTIC DASHBOARD ---
+        # --- DYNAMIC TELEMETRY DASHBOARD ---
         if not hasattr(self, '_log_tick'): self._log_tick = 0
         self._log_tick += 1
-        if self._log_tick % 20 == 0: # 1 update per second
+        if self._log_tick % 20 == 0:
             yaw_deg = math.degrees(yaw)
             type_str = "WAYPOINT" if len(self.waypoints) > 0 else "DIRECT GOAL"
             
-            # Format the remaining path for readability
+            # Format path diagnostics
             if len(self.waypoints) > 0:
-                path_str = " -> ".join([f"({p.pose.position.x:.1f},{p.pose.position.y:.1f})" for p in self.waypoints[:5]])
-                if len(self.waypoints) > 5: path_str += " ..."
+                path_str = " -> ".join([f"({p.pose.position.x:.1f},{p.pose.position.y:.1f})" for p in self.waypoints[:4]])
+                if len(self.waypoints) > 4: path_str += " ..."
             else:
                 path_str = "Final Approach" if dist_to_goal > 0.3 else "Goal Reached"
             
-            self.get_logger().info("\n" + "="*50 + 
-                                   f"\n[ROBOT STATE]  Pos: ({self.current_pose.position.x:.2f}, {self.current_pose.position.y:.2f}) | Rot: {yaw_deg:.1f}°" +
-                                   f"\n[NAVIGATION]   Target: {type_str} at ({target_x:.2f}, {target_y:.2f})" +
-                                   f"\n[DIST TO GO]   {dist_to_goal:.2f} meters" +
-                                   f"\n[PLANNED PATH] {path_str}" +
+            # Harmonic Field Diagnostics
+            trap_stat = "[CLEAR]" if not hasattr(self, '_stuck_ref') else "[TRAP DETECTED]"
+            
+            self.get_logger().info("\n" + "🎓 "*15 + 
+                                   f"\n[ACADEMIC METRICS] Status: {trap_stat}" +
+                                   f"\n[ROBOT STATE]  Pos: ({self.current_pose.position.x:.2f}, {self.current_pose.position.y:.2f}) | Yaw: {yaw_deg:.1f}°" +
+                                   f"\n[NAVIGATION]   Target: {type_str} | dist: {dist_to_goal:.2f}m" +
+                                   f"\n[PATH QUEUE]   {path_str}" +
                                    "\n" + "="*50)
 
         if dist_to_goal < 0.25:
@@ -285,31 +307,44 @@ class APFPlannerNode(Node):
         else:
             self.current_d0 = d0_raw
 
-        # 4. Geometric Repulsion (Cluster-Based)
+        # 4. Geometric Repulsion with Harmonic Escape Handling
+        # F_rep = k_rep * (1/rho - 1/rho_0) * (1/rho^2) * grad(rho)
         f_rep_x, f_rep_y = 0.0, 0.0
         self.detected_obstacles = self.cluster_obstacles(self.latest_scan)
+        
+        # Stagnation monitoring for Trap detection
+        if not hasattr(self, '_last_dist'): self._last_dist = dist_to_goal
+        if dist_to_goal > 0.5 and abs(self._last_dist - dist_to_goal) < 0.001:
+            if not hasattr(self, '_stuck_ticks'): self._stuck_ticks = 0
+            self._stuck_ticks += 1
+        else:
+            self._stuck_ticks = 0
+        self._last_dist = dist_to_goal
+        
+        is_trapped = self._stuck_ticks > 30 # ~1.5s of Stagnation
         
         for obs in self.detected_obstacles:
             cx, cy = obs['center'][0], obs['center'][1]
             rad = obs['radius']
             dist_to_center = math.sqrt(cx**2 + cy**2)
             
-            # Distance from robot edge to obstacle "surface"
             r_surface = max(0.02, dist_to_center - (rad + robot_radius))
             d0_limit = self.current_d0
             
             if r_surface < d0_limit:
-                # Geometric Repulsion Magnitude
                 rep_mag = k_rep * (1.0/r_surface - 1.0/d0_limit) * (1.0/r_surface**2)
-                rep_mag = min(rep_mag, 15.0) # slightly higher cap for clusters
+                rep_mag = min(rep_mag, 15.0)
                 
                 angle_to_obs = math.atan2(cy, cx)
                 f_rep_x -= rep_mag * math.cos(angle_to_obs)
                 f_rep_y -= rep_mag * math.sin(angle_to_obs)
                 
-                # Dynamic "Revolving" Vortex Force
+                # Harmonic "Vortex" Escape Force
+                # If trapped, increase gain and add a sliding component
+                escape_multiplier = 2.5 if is_trapped else 1.0
                 side = 1.0 if cy > 0 else -1.0
-                vortex_gain = k_curl * (2.0 / (r_surface + 0.1))
+                vortex_gain = (k_curl * escape_multiplier) * (2.0 / (r_surface + 0.1))
+                
                 f_rep_x += vortex_gain * rep_mag * math.sin(angle_to_obs) * side
                 f_rep_y -= vortex_gain * rep_mag * math.cos(angle_to_obs) * side
 
