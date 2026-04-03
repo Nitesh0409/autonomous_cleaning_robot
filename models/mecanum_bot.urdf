@@ -1,0 +1,354 @@
+<?xml version="1.0"?>
+<robot name="robot">
+
+  <!-- Materials -->
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+
+  <!-- Base Footprint (Dummy Root to fix KDL warnings) -->
+  <link name="base_footprint"/>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.0325" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Base Link (Chassis) -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.3 0.2 0.05"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.3 0.2 0.05"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 -0.0325" rpy="0 0 0"/>
+      <mass value="10.0"/>
+      <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+    </inertial>
+  </link>
+
+  <!-- Dustbin Body (Placeholder) -->
+  <link name="dustbin_body">
+    <visual>
+      <origin xyz="0 0 0.125" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.25"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.125" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.1" length="0.25"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
+    </inertial>
+  </link>
+  <joint name="dustbin_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="dustbin_body"/>
+    <origin xyz="0 0 0.025"/>
+  </joint>
+
+  <!-- Front Left Wheel -->
+  <link name="front_left_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius="0.0325" length="0.02"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.0325" length="0.02"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1.0</mu>
+            <mu2>0.08</mu2>
+            <fdir1>1 1 0</fdir1>
+            <slip1>0.0</slip1>
+            <slip2>0.0</slip2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <kp>1000000.0</kp>
+            <kd>100.0</kd>
+            <min_depth>0.001</min_depth>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.00026" ixy="0" ixz="0" iyy="0.00026" iyz="0" izz="0.00026"/>
+    </inertial>
+  </link>
+  <joint name="front_left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="front_left_wheel"/>
+    <origin xyz="0.15 0.12 0.0" rpy="1.5707 0 0"/>
+    <axis xyz="0 0 -1"/>
+  </joint>
+
+  <!-- Front Right Wheel -->
+  <link name="front_right_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius="0.0325" length="0.02"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.0325" length="0.02"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1.0</mu>
+            <mu2>0.08</mu2>
+            <fdir1>1 -1 0</fdir1>
+            <slip1>0.0</slip1>
+            <slip2>0.0</slip2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <kp>1000000.0</kp>
+            <kd>100.0</kd>
+            <min_depth>0.001</min_depth>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.00026" ixy="0" ixz="0" iyy="0.00026" iyz="0" izz="0.00026"/>
+    </inertial>
+  </link>
+  <joint name="front_right_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="front_right_wheel"/>
+    <origin xyz="0.15 -0.12 0.0" rpy="1.5707 0 0"/>
+    <axis xyz="0 0 -1"/>
+  </joint>
+
+  <!-- Back Left Wheel -->
+  <link name="back_left_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius="0.0325" length="0.02"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.0325" length="0.02"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1.0</mu>
+            <mu2>0.08</mu2>
+            <fdir1>1 -1 0</fdir1>
+            <slip1>0.0</slip1>
+            <slip2>0.0</slip2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <kp>1000000.0</kp>
+            <kd>100.0</kd>
+            <min_depth>0.001</min_depth>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.00026" ixy="0" ixz="0" iyy="0.00026" iyz="0" izz="0.00026"/>
+    </inertial>
+  </link>
+  <joint name="back_left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="back_left_wheel"/>
+    <origin xyz="-0.15 0.12 0.0" rpy="1.5707 0 0"/>
+    <axis xyz="0 0 -1"/>
+  </joint>
+
+  <!-- Back Right Wheel -->
+  <link name="back_right_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius="0.0325" length="0.02"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.0325" length="0.02"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1.0</mu>
+            <mu2>0.08</mu2>
+            <fdir1>1 1 0</fdir1>
+            <slip1>0.0</slip1>
+            <slip2>0.0</slip2>
+          </ode>
+        </friction>
+        <contact>
+          <ode>
+            <kp>1000000.0</kp>
+            <kd>100.0</kd>
+            <min_depth>0.001</min_depth>
+          </ode>
+        </contact>
+      </surface>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.00026" ixy="0" ixz="0" iyy="0.00026" iyz="0" izz="0.00026"/>
+    </inertial>
+  </link>
+  <joint name="back_right_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="back_right_wheel"/>
+    <origin xyz="-0.15 -0.12 0.0" rpy="1.5707 0 0"/>
+    <axis xyz="0 0 -1"/>
+  </joint>
+
+  <!-- Upward Facing Camera -->
+  <link name="camera_link">
+    <visual>
+      <geometry>
+        <box size="0.02 0.02 0.02"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+  <joint name="camera_joint" type="fixed">
+    <parent link="dustbin_body"/>
+    <child link="camera_link"/>
+    <origin xyz="0 0 0.2" rpy="0 -1.5707 0"/>
+  </joint>
+
+  <!-- LiDaR (Laser Scanner) -->
+  <link name="laser_frame">
+    <visual>
+      <geometry>
+        <cylinder radius="0.05" length="0.04"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.05" length="0.04"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+  </link>
+  <joint name="laser_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="laser_frame"/>
+    <origin xyz="0 0 0.27" rpy="0 0 0"/>
+  </joint>
+
+  <gazebo reference="laser_frame">
+    <sensor type="gpu_lidar" name="laser">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <always_on>true</always_on>
+      <update_rate>15</update_rate>
+      <lidar>
+        <scan>
+          <horizontal>
+            <samples>1440</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14159</min_angle>
+            <max_angle>3.14159</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.1</min>
+          <max>12.0</max>
+          <resolution>0.005</resolution>
+        </range>
+        </lidar>
+        <topic>/scan</topic>
+        <gz_frame_id>laser_frame</gz_frame_id>
+      </sensor>
+    </gazebo>
+
+  <gazebo>
+    <plugin filename="gz-sim-mecanum-drive-system" name="gz::sim::systems::MecanumDrive">
+      <front_left_joint>front_left_wheel_joint</front_left_joint>
+      <front_right_joint>front_right_wheel_joint</front_right_joint>
+      <back_left_joint>back_left_wheel_joint</back_left_joint>
+      <back_right_joint>back_right_wheel_joint</back_right_joint>
+      
+      <wheelbase>0.3</wheelbase>
+      <wheel_separation>0.24</wheel_separation>
+      <wheel_radius>0.0325</wheel_radius>
+      
+      <topic>/cmd_vel</topic>
+      
+      <!-- Disable Kinematic Odom: Use Ground Truth instead -->
+      <odom_topic>/odom_kinematic</odom_topic>
+      <tf_topic>/tf_kinematic</tf_topic>
+      <publish_odom>false</publish_odom>
+      <publish_odom_tf>false</publish_odom_tf>
+      
+      <odom_publish_frequency>50</odom_publish_frequency>
+      <max_linear_velocity>0.8</max_linear_velocity>
+      <max_angular_velocity>2.0</max_angular_velocity>
+    </plugin>
+    
+    <!-- GROUND TRUTH ODOMETRY PUBLISHER -->
+    <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
+      <odom_topic>/odom</odom_topic>
+      <tf_topic>/tf</tf_topic>
+      <odom_frame>odom</odom_frame>
+      <robot_base_frame>base_footprint</robot_base_frame>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+      <topic>joint_states</topic>
+      <joint_name>front_left_wheel_joint</joint_name>
+      <joint_name>back_left_wheel_joint</joint_name>
+      <joint_name>front_right_wheel_joint</joint_name>
+      <joint_name>back_right_wheel_joint</joint_name>
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="base_link">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <gazebo reference="dustbin_body">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+</robot>
