@@ -1,0 +1,19 @@
+# --- NATIVE WINDOWS ROS 2 SETUP (RoboStack) ---
+# 1. Install Miniconda from: https://docs.anaconda.com/miniconda/
+# 2. Open "Anaconda Prompt" (Miniconda3)
+# 3. Run these commands:
+
+# Create the environment
+conda create -n ros_env python=3.9 -c conda-forge -y
+conda activate ros_env
+
+# Add RoboStack channels
+conda config --env --add channels conda-forge
+conda config --env --add channels robostack-staging
+
+# Install ROS 2 Humble & Gazebo
+conda install ros-humble-desktop -y
+conda install ros-humble-gazebo-ros-pkgs -y
+
+# Verify
+ros2 --help

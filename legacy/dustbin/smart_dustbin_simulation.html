@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Dustbin 2D Simulator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0b10;
+            --accent-green: #39ff14;
+            --accent-blue: #00d2ff;
+            --accent-red: #ff3e3e;
+            --glass-bg: rgba(20, 22, 30, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #simulation-container {
+            position: relative;
+            width: 95vw;
+            height: 90vh;
+            background: radial-gradient(circle at center, #1a1c25 0%, #0a0b10 100%);
+            border-radius: 24px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+            cursor: crosshair;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        /* UI Overlays */
+        .overlay {
+            position: absolute;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        #dashboard {
+            top: 20px;
+            left: 20px;
+            width: 280px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            pointer-events: auto;
+        }
+
+        h1 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--accent-blue);
+        }
+
+        h1::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-green);
+        }
+
+        .telemetry-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        .label { color: rgba(255, 255, 255, 0.5); }
+        .value { color: var(--accent-green); }
+
+        #controls-hint {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            padding: 10px 25px;
+            border-radius: 50px;
+            border: 1px solid var(--glass-border);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            gap: 20px;
+        }
+
+        kbd {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: white;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .btn-container {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: white;
+            padding: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-blue);
+        }
+
+        #status-indicator {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(57, 255, 20, 0.1);
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        /* Grid Effect */
+        #grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="simulation-container">
+        <div id="grid-overlay"></div>
+        <canvas id="simCanvas"></canvas>
+
+        <!-- Dashboard -->
+        <div id="dashboard" class="overlay">
+            <h1>SMART DUSTBIN v1.0</h1>
+            <div class="telemetry-row">
+                <span class="label">Status</span>
+                <span id="status-val" class="value">IDLE</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="label">Velocity</span>
+                <span id="vel-val" class="value">0.00 m/s</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="label">Dist to Target</span>
+                <span id="dist-val" class="value">0.00 m</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="label">Obstacles</span>
+                <span id="obs-count" class="value">0</span>
+            </div>
+
+            <div class="btn-container">
+                <button onclick="resetSim()">Reset Robot</button>
+                <button onclick="clearObstacles()">Clear All</button>
+            </div>
+        </div>
+
+        <!-- Controls Hint -->
+        <div id="controls-hint" class="overlay">
+            <span><kbd>Click</kbd> Set Target B</span>
+            <span><kbd>Shift + Click</kbd> Place Obstacle</span>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('simCanvas');
+        const ctx = canvas.getContext('2d');
+        const container = document.getElementById('simulation-container');
+
+        // Simulation State
+        let robot = {
+            x: 0,
+            y: 0,
+            angle: 0,
+            vel: { x: 0, y: 0 },
+            maxSpeed: 4,
+            maxForce: 0.15,
+            radius: 20
+        };
+
+        let target = null;
+        let obstacles = [];
+        let particles = [];
+
+        function init() {
+            resize();
+            robot.x = canvas.width / 4;
+            robot.y = canvas.height / 2;
+            animate();
+        }
+
+        function resize() {
+            canvas.width = container.clientWidth;
+            canvas.height = container.clientHeight;
+        }
+
+        window.addEventListener('resize', resize);
+
+        // Interaction
+        container.addEventListener('mousedown', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            if (e.shiftKey) {
+                obstacles.push({ x, y, r: 30 + Math.random() * 20 });
+                document.getElementById('obs-count').innerText = obstacles.length;
+                createBurst(x, y, '#ff3e3e');
+            } else {
+                target = { x, y };
+                createBurst(x, y, '#00d2ff');
+            }
+        });
+
+        function createBurst(x, y, color) {
+            for(let i=0; i<8; i++) {
+                particles.push({
+                    x, y,
+                    vx: (Math.random() - 0.5) * 10,
+                    vy: (Math.random() - 0.5) * 10,
+                    life: 1.0,
+                    color
+                });
+            }
+        }
+
+        function resetSim() {
+            robot.x = canvas.width / 4;
+            robot.y = canvas.height / 2;
+            robot.vel = { x: 0, y: 0 };
+            target = null;
+        }
+
+        function clearObstacles() {
+            obstacles = [];
+            target = null;
+            document.getElementById('obs-count').innerText = "0";
+        }
+
+        // Vector Math Helpers
+        const vec = {
+            sub: (a, b) => ({ x: a.x - b.x, y: a.y - b.y }),
+            add: (a, b) => ({ x: a.x + b.x, y: a.y + b.y }),
+            mul: (v, s) => ({ x: v.x * s, y: v.y * s }),
+            div: (v, s) => ({ x: v.x / s, y: v.y / s }),
+            mag: (v) => Math.sqrt(v.x * v.x + v.y * v.y),
+            norm: (v) => {
+                const m = vec.mag(v);
+                return m > 0 ? vec.div(v, m) : { x: 0, y: 0 };
+            },
+            limit: (v, max) => {
+                const m = vec.mag(v);
+                return m > max ? vec.mul(vec.norm(v), max) : v;
+            },
+            dist: (a, b) => Math.hypot(a.x - b.x, a.y - b.y)
+        };
+
+        function update() {
+            let steering = { x: 0, y: 0 };
+
+            if (target) {
+                const d = vec.dist(robot, target);
+                document.getElementById('dist-val').innerText = (d/10).toFixed(2) + " m";
+
+                if (d > 5) {
+                    // 1. Seek Behavior
+                    let desired = vec.sub(target, robot);
+                    desired = vec.mul(vec.norm(desired), robot.maxSpeed);
+                    
+                    // Arrival smoothing
+                    if (d < 100) {
+                        desired = vec.mul(desired, d/100);
+                    }
+
+                    const seek = vec.sub(desired, robot.vel);
+                    steering = vec.add(steering, seek);
+                    document.getElementById('status-val').innerText = "NAVIGATING";
+                    document.getElementById('status-val').style.color = "var(--accent-blue)";
+                } else {
+                    document.getElementById('status-val').innerText = "ARRIVED";
+                    document.getElementById('status-val').style.color = "var(--accent-green)";
+                    target = null;
+                }
+            } else {
+                document.getElementById('status-val').innerText = "IDLE";
+                document.getElementById('status-val').style.color = "rgba(255,255,255,0.5)";
+            }
+
+            // 2. Obstacle Avoidance (Simple Potential Field)
+            obstacles.forEach(obs => {
+                const d = vec.dist(robot, obs);
+                const safeDist = obs.r + 50;
+                if (d < safeDist) {
+                    let diff = vec.sub(robot, obs);
+                    diff = vec.norm(diff);
+                    const force = (safeDist - d) / safeDist;
+                    steering = vec.add(steering, vec.mul(diff, force * 2.5));
+                }
+            });
+
+            // Apply steering
+            steering = vec.limit(steering, robot.maxForce);
+            robot.vel = vec.limit(vec.add(robot.vel, steering), robot.maxSpeed);
+            robot.x += robot.vel.x;
+            robot.y += robot.vel.y;
+
+            // Update Angle
+            if (vec.mag(robot.vel) > 0.1) {
+                robot.angle = Math.atan2(robot.vel.y, robot.vel.x);
+            }
+
+            // Update Telemetry
+            document.getElementById('vel-val').innerText = (vec.mag(robot.vel)/10).toFixed(2) + " m/s";
+
+            // Update Particles
+            particles = particles.filter(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                p.life -= 0.02;
+                return p.life > 0;
+            });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw Target
+            if (target) {
+                ctx.beginPath();
+                ctx.arc(target.x, target.y, 8, 0, Math.PI * 2);
+                ctx.fillStyle = '#00d2ff';
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = '#00d2ff';
+                ctx.fill();
+                ctx.shadowBlur = 0;
+
+                // Target Ring
+                ctx.beginPath();
+                ctx.arc(target.x, target.y, 15 + Math.sin(Date.now()*0.01)*5, 0, Math.PI * 2);
+                ctx.strokeStyle = 'rgba(0, 210, 255, 0.3)';
+                ctx.stroke();
+            }
+
+            // Draw Obstacles
+            obstacles.forEach(obs => {
+                const grad = ctx.createRadialGradient(obs.x, obs.y, 0, obs.x, obs.y, obs.r);
+                grad.addColorStop(0, 'rgba(255, 62, 62, 0.4)');
+                grad.addColorStop(1, 'rgba(255, 62, 62, 0.1)');
+                
+                ctx.beginPath();
+                ctx.arc(obs.x, obs.y, obs.r, 0, Math.PI * 2);
+                ctx.fillStyle = grad;
+                ctx.fill();
+                ctx.strokeStyle = 'rgba(255, 62, 62, 0.5)';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                // Inner core
+                ctx.beginPath();
+                ctx.arc(obs.x, obs.y, 5, 0, Math.PI * 2);
+                ctx.fillStyle = '#ff3e3e';
+                ctx.fill();
+            });
+
+            // Draw Particles
+            particles.forEach(p => {
+                ctx.globalAlpha = p.life;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.fill();
+            });
+            ctx.globalAlpha = 1;
+
+            // Draw Robot (Smart Dustbin)
+            ctx.save();
+            ctx.translate(robot.x, robot.y);
+            ctx.rotate(robot.angle);
+
+            // Shadow
+            ctx.shadowBlur = 20;
+            ctx.shadowColor = 'rgba(0,0,0,0.5)';
+
+            // Body
+            ctx.beginPath();
+            ctx.roundRect(-20, -20, 40, 40, 8);
+            ctx.fillStyle = '#2a2d3e';
+            ctx.fill();
+            ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+            ctx.stroke();
+
+            // Front Indicator
+            ctx.beginPath();
+            ctx.moveTo(10, -10);
+            ctx.lineTo(20, 0);
+            ctx.lineTo(10, 10);
+            ctx.strokeStyle = '#39ff14';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Lid detail
+            ctx.beginPath();
+            ctx.arc(0, 0, 12, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+            ctx.stroke();
+
+            ctx.restore();
+        }
+
+        function animate() {
+            update();
+            draw();
+            requestAnimationFrame(animate);
+        }
+
+        init();
+    </script>
+</body>
+</html>
