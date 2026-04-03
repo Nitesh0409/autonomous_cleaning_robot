@@ -1,66 +1,63 @@
-# Mecanum Tactical Navigation Suite
+# Autonomous Navigation for Mecanum-Wheeled Robots via Artificial Potential Fields
 
-![Robot Status](https://img.shields.io/badge/ROS2-Jazzy-blue)
-![Build](https://img.shields.io/badge/Build-Passed-green)
+![ROS 2 Jazzy](https://img.shields.io/badge/ROS2-Jazzy-blue)
+![Build Status](https://img.shields.io/badge/Build-Passed-green)
 
-A professional ROS 2 navigation stack for holonomic Mecanum robots, optimized for smooth obstacle avoidance using Artificial Potential Fields.
-
----
-
-## Destination Overview
-![Robot Destination](media/Screenshot%202026-04-03%20191926.png)
+## Overview
+This repository contains a navigation stack for holonomic Mecanum-wheeled robotic systems. The architecture uses **Artificial Potential Fields (APF)** for trajectory generation. By modeling goal positions as attractive poles and obstacles as repulsive fields, the system generates smooth paths and basic obstacle avoidance.
 
 ---
 
-## Repository Structure
+## Methodology: Artificial Potential Fields
+The navigation strategy is based on the superposition of two primary vectors:
+1.  **Attractive Vector**: Directs the robot toward the target coordinate.
+2.  **Repulsive Vector**: Diverts the robot from obstacles detected via LiDAR.
 
-The project has been reorganized for clarity and implementation-specific transparency:
-
-- **`robot/planner_local_apf.py`**: Local navigation using Artificial Potential Fields.
-- **`robot/planner_local_simple_apf.py`**: A low-latency, linear APF implementation.
-- **`robot/tests/`**: Diagnostic scripts for RViz frame verification and navigation drift analysis.
-- **`models/mecanum_bot.urdf`**: High-fidelity URDF with optimized friction parameters.
+The combined resultant vector determines the velocity commands ($v_x, v_y, \omega$) sent to the robot's controllers.
 
 ---
 
-## Quick Start
+## System Architecture
 
-### 1. Build and Source
+### Implementation Modules
+- **`robot/planner_local_apf.py`**: Local navigation node implementing potential field calculations.
+- **`robot/planner_local_simple_apf.py`**: A linear variant of the APF algorithm designed for low-latency response.
+- **`models/mecanum_bot.urdf`**: A Unified Robot Description Format (URDF) file with friction parameters for holonomic movement.
+- **`robot/tests/`**: Diagnostic utilities for frame transform ($tf2$) validation and odometry drift analysis.
+
+### Figure 1: Simulation Environment
+![Figure 1: RViz visualization of the robot navigating towards a target destination.](media/Screenshot%202026-04-03%20191926.png)
+*Figure 1: RViz visualization of the robot navigating towards a target destination.*
+
+---
+
+## Deployment and Execution
+
+### 1. Build and Environment Setup
+Ensure the ROS 2 workspace is configured and dependencies are installed.
 ```bash
 colcon build --symlink-install --packages-select robot
 source install/setup.bash
 ```
 
-### 2. Launch Simulation (APF)
+### 2. Simulation Launch
+To start the Gazebo environment with the APF navigation stack:
 ```bash
 ros2 launch robot sim_gazebo.launch.py
 ```
 
-### 3. Navigating
-1. Open **RViz** (launched automatically).
-2. Use the **"2D Goal Pose"** tool to click on a destination.
-3. Watch the robot perform a smooth navigation towards the goal using potential fields.
+### 3. Procedure for Autonomous Navigation
+1.  Initialize the **RViz** interface (triggered by the launch file).
+2.  Designate a destination using the **"2D Goal Pose"** tool.
+3.  Observe the robot moving towards the goal while avoiding obstacles.
 
 ---
 
-## Planner Comparison
-
-| Planner | Algorithm | Best For... | Obstacle Avoidance |
-| :--- | :--- | :--- | :--- |
-| **APF** | Potential Fields | Smooth, organic motion | Proactive |
-| **Simple APF** | Linear Potential | Low-latency response | Reactive |
+## Parameter Tuning
+- **Friction**: If rotation is slow, check the `mu2` settings in the URDF model.
+- **Field Gains**: Oscillatory behavior can be adjusted via the attractive/repulsive gain parameters in the node configuration.
 
 ---
 
-## Testing Implementations
-
-To run the APF node manually:
-```bash
-ros2 run robot planner_local_apf
-```
-
----
-
-## Known Issues & Tuning
-- **Pivot Authority**: If the robot spins too slowly, check the `mu2` friction settings in `models/mecanum_bot.urdf`.
-- **Field Stability**: If the robot oscillates near obstacles, adjust the `gain` parameters in the APF configuration.
+## Conclusion
+The APF-based approach provides a framework for holonomic navigation. Future work includes the integration of dynamic obstacle handling and global path planning.
