@@ -26,12 +26,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'planner_local_pid = robot.planner_local_pid:main',
             'planner_local_apf = robot.planner_local_apf:main',
-            'planner_global_astar = robot.planner_global_astar:main',
             'verify_nav = robot.tests.verify_nav:main',
             'diagnose_frames = robot.tests.diagnose_frames:main',
-            'planner_local_fgm = robot.planner_local_fgm:main',
             'planner_local_simple_apf = robot.planner_local_simple_apf:main'
         ],
     },
