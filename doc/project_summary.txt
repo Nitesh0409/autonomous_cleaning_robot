@@ -18,5 +18,17 @@ Global navigation is handled by an optimized A* algorithm. This system generates
 B. Local Planning: Transition to DWA
 While the project initially utilized an Artificial Potential Field (APF) approach for local obstacle avoidance, we have transitioned to the Dynamic Window Approach (DWA). This shift was driven by the need for better kinematic fluidity. DWA allows the robot to search for the best velocities while staying within its physical acceleration limits, leading to much smoother movement. Unlike the earlier force-based APF models, DWA uses predictive trajectory simulation to avoid collisions and is significantly more robust against getting trapped in local minima, such as U-shaped dead ends.
 
-IV. WORKSPACE ORGANIZATION
-The codebase has been refactored into a structured package format, with the active navigation core residing in the main package directories. All experimental scripts, early versions of the planners, and temporary logs have been moved to a dedicated legacy folder. This organization ensures that the primary branch remains clean and focused on the current high-performance navigation stack.
+IV. PROJECT ORGANIZATION AND FILE STRUCTURE
+The repository is organized following standard ROS 2 package conventions to ensure modularity and ease of deployment. The core logic and assets are distributed across the following directories:
+
+A. robot/
+This directory serves as the brain of the system. it contains the A* Global Planner and the Nitro-DWA Local Planner. It also houses the mission management logic and the centralized robot UI dashboard, which coordinates the cleaning cycles and provides real-time telemetry.
+
+B. config/ and launch/
+The config folder contains the RViz visualization profiles and bridge configurations that link the ROS 2 environment with the Gazebo simulation. The launch directory contains Python orchestrator scripts that automate the simultaneous initialization of the robot nodes, the bridge, and the simulation interface.
+
+C. models/ and meshes/
+These directories contain the physical definitions of the robot. The models folder houses the URDF descriptions of the holonomic chassis and manipulator arms, while the meshes folder contains the 3D geometry for components like the mecanum wheels, ensuring accurate physics and visual representation in the simulation.
+
+D. worlds/
+The worlds directory contains the varied simulation environments, ranging from static obstacle fields to dynamic arenas with moving actors. These environments are essential for rigorously validating the performance of the navigation stack under different stress levels.
