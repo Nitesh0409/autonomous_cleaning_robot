@@ -1,0 +1,632 @@
+[INFO] [launch]: All log files can be found below /home/cclab/.ros/log/2026-04-16-22-57-22-127425-CCLAB1PC19-2247
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [2251]
+[INFO] [robot_state_publisher-2]: process started with pid [2252]
+[INFO] [create-3]: process started with pid [2253]
+[INFO] [ros2-4]: process started with pid [2254]
+[INFO] [rviz2-5]: process started with pid [2256]
+[INFO] [static_transform_publisher-6]: process started with pid [2257]
+[INFO] [planner_global_dstar-7]: process started with pid [2258]
+[INFO] [planner_local_apf-8]: process started with pid [2259]
+[INFO] [cleaner_mission_manager-9]: process started with pid [2260]
+[static_transform_publisher-6] [WARN] [1776380243.761920070] []: Old-style arguments are deprecated; see --help for new-style arguments
+[static_transform_publisher-6] [INFO] [1776380243.807280853] [static_transform_publisher_IZNx9zVJWs8mrq0n]: Spinning until stopped - publishing transform
+[static_transform_publisher-6] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-6] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-6] from 'odom' to 'dumpster'
+[robot_state_publisher-2] [INFO] [1776380243.853640720] [robot_state_publisher]: Robot initialized
+[rviz2-5] [INFO] [1776380244.109448568] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-5] [INFO] [1776380244.109576719] [rviz2]: OpenGl version: 4.5 (GLSL 4.5)
+[rviz2-5] [INFO] [1776380244.193658817] [rviz2]: Stereo is NOT SUPPORTED
+[ros2-4] [INFO] [1776380244.462558601] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/robot/odometry (gz.msgs.Odometry) -> /model/robot/odometry (nav_msgs/msg/Odometry)] (Lazy 0)
+[ros2-4] [INFO] [1776380244.471345746] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/model/robot/tf (gz.msgs.Pose_V) -> /model/robot/tf (tf2_msgs/msg/TFMessage)] (Lazy 0)
+[ros2-4] [INFO] [1776380244.474984024] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/cmd_vel (geometry_msgs/msg/Twist) -> /cmd_vel (gz.msgs.Twist)] (Lazy 0)
+[ros2-4] [INFO] [1776380244.476630279] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[create-3] [INFO] [1776380244.551884532] [ros_gz_sim]: Entity creation successful.
+[INFO] [create-3]: process has finished cleanly [pid 2253]
+[rviz2-5] [ERROR] [1776380245.036947851] [rviz2]: Could not load resource [/mnt/c/SOLIDWORKS Data/browser/Projects/Robotics Assignment/Robot/meshes/mecanum_wheel.dae]: Unable to open file "/mnt/c/SOLIDWORKS Data/browser/Projects/Robotics Assignment/Robot/meshes/mecanum_wheel.dae".
+[rviz2-5] [ERROR] [1776380245.037557439] [rviz2]: Could not load resource [/mnt/c/SOLIDWORKS Data/browser/Projects/Robotics Assignment/Robot/meshes/mecanum_wheel.dae]: Unable to open file "/mnt/c/SOLIDWORKS Data/browser/Projects/Robotics Assignment/Robot/meshes/mecanum_wheel.dae".
+[rviz2-5] [ERROR] [1776380245.037977551] [rviz2]: Could not load resource [/mnt/c/SOLIDWORKS Data/browser/Projects/Robotics Assignment/Robot/meshes/mecanum_wheel.dae]: Unable to open file "/mnt/c/SOLIDWORKS Data/browser/Projects/Robotics Assignment/Robot/meshes/mecanum_wheel.dae".
+[rviz2-5] [ERROR] [1776380245.038119268] [rviz2]: Could not load resource [/mnt/c/SOLIDWORKS Data/browser/Projects/Robotics Assignment/Robot/meshes/mecanum_wheel.dae]: Unable to open file "/mnt/c/SOLIDWORKS Data/browser/Projects/Robotics Assignment/Robot/meshes/mecanum_wheel.dae".
+[rviz2-5] [ERROR] [1776380245.039539930] [rviz2]: Could not load resource [/mnt/c/SOLIDWORKS Data/browser/Projects/Robotics Assignment/Robot/meshes/mecanum_wheel.dae]: Unable to open file "/mnt/c/SOLIDWORKS Data/browser/Projects/Robotics Assignment/Robot/meshes/mecanum_wheel.dae".
+[rviz2-5] [ERROR] [1776380245.039770290] [rviz2]: Could not load resource [/mnt/c/SOLIDWORKS Data/browser/Projects/Robotics Assignment/Robot/meshes/mecanum_wheel.dae]: Unable to open file "/mnt/c/SOLIDWORKS Data/browser/Projects/Robotics Assignment/Robot/meshes/mecanum_wheel.dae".
+[rviz2-5] [ERROR] [1776380245.040164368] [rviz2]: Could not load resource [/mnt/c/SOLIDWORKS Data/browser/Projects/Robotics Assignment/Robot/meshes/mecanum_wheel.dae]: Unable to open file "/mnt/c/SOLIDWORKS Data/browser/Projects/Robotics Assignment/Robot/meshes/mecanum_wheel.dae".
+[rviz2-5] [ERROR] [1776380245.040313786] [rviz2]: Could not load resource [/mnt/c/SOLIDWORKS Data/browser/Projects/Robotics Assignment/Robot/meshes/mecanum_wheel.dae]: Unable to open file "/mnt/c/SOLIDWORKS Data/browser/Projects/Robotics Assignment/Robot/meshes/mecanum_wheel.dae".
+[planner_local_apf-8] [INFO] [1776380245.065944630] [planner_local_apf]: ⚓ PURE PURSUIT ACTIVE. Log: nav_log_20260416_225724.csv
+[planner_global_dstar-7] [INFO] [1776380245.109125380] [planner_global_dstar]: D* Lite Global Planner Initialized. Safety Mode: Enabled. Ghost-Proofing: Active.
+[rviz2-5] failed to create drawable
+[rviz2-5] failed to create drawable
+[rviz2-5] [INFO] [1776380245.122082657] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-5] failed to create drawable
+[rviz2-5] failed to create drawable
+[rviz2-5] failed to create drawable
+[rviz2-5] failed to create drawable
+[cleaner_mission_manager-9] [INFO] [1776380245.386398614] [cleaner_mission_manager]: 🎯 OMEGA-TRACKING ACTIVE. Final Fix Deploying.
+[planner_local_apf-8] [INFO] [1776380246.260878120] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.000, 0.000)
+[planner_local_apf-8] [INFO] [1776380246.600350887] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[ros2-4] [INFO] [1776380246.619104569] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Twist to Gazebo gz.msgs.Twist (showing msg only once per type)
+[planner_local_apf-8] [INFO] [1776380246.630649526] [planner_local_apf]: 🛣️ Path Received: 1 waypoints. Engaging motors.
+[planner_local_apf-8] [INFO] [1776380246.657939092] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380246.717790749] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380246.799860381] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380247.277878327] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.000, 0.000)
+[planner_local_apf-8] [INFO] [1776380247.975935138] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380248.071918139] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380248.296954893] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.000, 0.000)
+[planner_global_dstar-7] [INFO] [1776380248.370688292] [planner_global_dstar]: 🎯 New Target Locked: (216, 200). Engaging immediately.
+[planner_local_apf-8] [INFO] [1776380251.792393328] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.000, 0.000)
+[planner_global_dstar-7] [INFO] [1776380251.939125138] [planner_global_dstar]: D* status: g[start]=16.7 waypoints=11 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380252.017336673] [planner_local_apf]: 🛤️ Rail Updated: 11 points.
+[planner_local_apf-8] [INFO] [1776380252.040366822] [planner_local_apf]: 🛣️ Path Received: 11 waypoints. Engaging motors.
+[planner_local_apf-8] [INFO] [1776380252.134158330] [planner_local_apf]: 🛤️ Rail Updated: 11 points.
+[planner_local_apf-8] [INFO] [1776380252.257153786] [planner_local_apf]: 🛤️ Rail Updated: 11 points.
+[planner_local_apf-8] [INFO] [1776380252.369251364] [planner_local_apf]: 🛤️ Rail Updated: 11 points.
+[planner_local_apf-8] [INFO] [1776380252.538154491] [planner_local_apf]: 🛤️ Rail Updated: 11 points.
+[planner_local_apf-8] [INFO] [1776380252.712905265] [planner_local_apf]: 🛤️ Rail Updated: 11 points.
+[planner_local_apf-8] [INFO] [1776380252.795237432] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.086, -0.000)
+[planner_local_apf-8] [INFO] [1776380252.821466131] [planner_local_apf]: 🛤️ Rail Updated: 11 points.
+[planner_local_apf-8] [INFO] [1776380252.917409898] [planner_local_apf]: 🛤️ Rail Updated: 11 points.
+[planner_local_apf-8] [INFO] [1776380253.008526369] [planner_local_apf]: 🛤️ Rail Updated: 11 points.
+[planner_local_apf-8] [INFO] [1776380253.124690679] [planner_local_apf]: 🛤️ Rail Updated: 9 points.
+[planner_local_apf-8] [INFO] [1776380253.213901292] [planner_local_apf]: 🛤️ Rail Updated: 11 points.
+[planner_local_apf-8] [INFO] [1776380253.340355176] [planner_local_apf]: 🛤️ Rail Updated: 10 points.
+[planner_local_apf-8] [INFO] [1776380253.469767624] [planner_local_apf]: 🛤️ Rail Updated: 9 points.
+[planner_local_apf-8] [INFO] [1776380253.623950068] [planner_local_apf]: 🛤️ Rail Updated: 8 points.
+[planner_local_apf-8] [INFO] [1776380253.767034616] [planner_local_apf]: 🛤️ Rail Updated: 8 points.
+[planner_local_apf-8] [INFO] [1776380253.859567072] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.272, -0.000)
+[planner_local_apf-8] [INFO] [1776380253.905086807] [planner_local_apf]: 🛤️ Rail Updated: 8 points.
+[planner_global_dstar-7] [INFO] [1776380254.030314181] [planner_global_dstar]: D* status: g[start]=10.9 waypoints=6 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380254.042706329] [planner_local_apf]: 🛤️ Rail Updated: 8 points.
+[planner_local_apf-8] [INFO] [1776380254.082729504] [planner_local_apf]: 🛣️ Path Received: 8 waypoints. Engaging motors.
+[planner_local_apf-8] [INFO] [1776380254.196391661] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380254.423954218] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[ERROR] [rviz2-5]: process has died [pid 2256, exit code -11, cmd '/opt/ros/jazzy/lib/rviz2/rviz2 -d /mnt/c/SOLIDWORKS Data/browser/Projects/Robotics Assignment/Robot/install/robot/share/robot/config/robot.rviz --ros-args --params-file /tmp/launch_params_m53d023p'].
+[planner_local_apf-8] [INFO] [1776380254.616250497] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380254.756841508] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380254.892988485] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380255.001933346] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.400, -0.000)
+[planner_local_apf-8] [INFO] [1776380255.039764020] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380255.169830607] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380255.288024342] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380255.399581540] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380255.504171284] [planner_local_apf]: 🛤️ Rail Updated: 5 points.
+[planner_local_apf-8] [INFO] [1776380255.616027593] [planner_local_apf]: 🛤️ Rail Updated: 5 points.
+[planner_local_apf-8] [INFO] [1776380255.711699566] [planner_local_apf]: 🛤️ Rail Updated: 5 points.
+[planner_local_apf-8] [INFO] [1776380255.822686594] [planner_local_apf]: 🛤️ Rail Updated: 5 points.
+[planner_local_apf-8] [INFO] [1776380255.938833212] [planner_local_apf]: 🛤️ Rail Updated: 5 points.
+[planner_local_apf-8] [INFO] [1776380256.008114968] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.509, -0.000)
+[planner_global_dstar-7] [INFO] [1776380256.039938587] [planner_global_dstar]: D* status: g[start]=6.7 waypoints=4 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380256.040756626] [planner_local_apf]: 🛤️ Rail Updated: 5 points.
+[planner_local_apf-8] [INFO] [1776380256.142882901] [planner_local_apf]: 🛤️ Rail Updated: 5 points.
+[planner_local_apf-8] [INFO] [1776380256.164079885] [planner_local_apf]: 🛣️ Path Received: 5 waypoints. Engaging motors.
+[planner_local_apf-8] [INFO] [1776380256.256177288] [planner_local_apf]: 🛤️ Rail Updated: 5 points.
+[planner_local_apf-8] [INFO] [1776380256.373762993] [planner_local_apf]: 🛤️ Rail Updated: 4 points.
+[planner_local_apf-8] [INFO] [1776380256.493628924] [planner_local_apf]: 🛤️ Rail Updated: 4 points.
+[planner_local_apf-8] [INFO] [1776380256.588994453] [planner_local_apf]: 🛤️ Rail Updated: 4 points.
+[planner_local_apf-8] [INFO] [1776380256.703344848] [planner_local_apf]: 🛤️ Rail Updated: 4 points.
+[planner_local_apf-8] [INFO] [1776380256.829748590] [planner_local_apf]: 🛤️ Rail Updated: 4 points.
+[planner_local_apf-8] [INFO] [1776380256.932360701] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380257.018803326] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380257.097186004] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.595, -0.000)
+[planner_local_apf-8] [INFO] [1776380257.115696859] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380257.233207855] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380257.327399766] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380257.436415211] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380257.526844176] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380257.631891615] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380257.737652135] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380257.826354728] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380257.913374032] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380258.035823884] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380258.132013961] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.659, -0.000)
+[planner_local_apf-8] [INFO] [1776380258.168943178] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380258.197569438] [planner_local_apf]: 🛣️ Path Received: 3 waypoints. Engaging motors.
+[planner_global_dstar-7] [INFO] [1776380258.236648897] [planner_global_dstar]: D* status: g[start]=3.6 waypoints=2 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380258.264182023] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380258.361555251] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380258.439776503] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380258.532763079] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380258.618332664] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380258.724350403] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380258.810702919] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380258.927985021] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380259.042001472] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380259.190129744] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.702, -0.001)
+[planner_local_apf-8] [INFO] [1776380259.269453937] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380259.405874449] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380259.510577402] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380259.602689106] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380259.694838392] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380259.776783174] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380259.848078221] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380259.947076345] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380260.053614387] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380260.174492968] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_global_dstar-7] [INFO] [1776380260.240195296] [planner_global_dstar]: D* status: g[start]=2.5 waypoints=2 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380260.243511822] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.732, -0.001)
+[planner_local_apf-8] [INFO] [1776380260.267904148] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380260.301893225] [planner_local_apf]: 🛣️ Path Received: 2 waypoints. Engaging motors.
+[planner_local_apf-8] [INFO] [1776380260.381594997] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380260.482355061] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380260.575391780] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380260.660779588] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380260.748814659] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380260.834782447] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380260.937641877] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380261.064757599] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380261.161064094] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380261.204302227] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380261.261608372] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380261.297107303] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380261.326659219] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.755, -0.001)
+[planner_local_apf-8] [INFO] [1776380261.342310968] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[cleaner_mission_manager-9] [INFO] [1776380261.359609980] [cleaner_mission_manager]: 🏆 [PICKUP] Target Acquired. Solving IK...
+[planner_local_apf-8] [INFO] [1776380261.368675610] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380261.425162340] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380261.454897867] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380261.502931763] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380261.542210232] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380261.581211682] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380261.622655335] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380261.683136746] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380261.740477450] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380261.791750688] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380261.862530015] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380261.915150764] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380261.963025526] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380262.016338547] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380262.065277018] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380262.129590401] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380262.168518517] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380262.205414276] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380262.243865355] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380262.294411946] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380262.323821779] [planner_local_apf]: 🛣️ Path Received: 1 waypoints. Engaging motors.
+[planner_local_apf-8] [INFO] [1776380262.353228769] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380262.373858699] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.755, -0.001)
+[planner_local_apf-8] [INFO] [1776380262.392281920] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_global_dstar-7] [INFO] [1776380262.436247526] [planner_global_dstar]: D* status: g[start]=1.5 waypoints=1 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380262.465538466] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380262.529176627] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380262.565922326] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380262.616312533] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380262.646020193] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380262.699207263] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380262.734354558] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380262.794798661] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380262.837549490] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380262.887203150] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380262.941802906] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380263.013465998] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380263.051182913] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380263.104963438] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380263.133130261] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380263.175320544] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380263.214578296] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380263.260550410] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380263.304671025] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380263.364445498] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380263.398782819] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380263.430057900] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.755, -0.001)
+[planner_local_apf-8] [INFO] [1776380263.445337938] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380263.480126079] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380263.565671556] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380263.607729563] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380263.694702392] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380263.756149978] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380263.837111352] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380263.880286418] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380263.946814761] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380263.989400222] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380264.077635953] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380264.129683965] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380264.175152274] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380264.218622052] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380264.265287904] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380264.296898120] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380264.345314912] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380264.364894058] [planner_local_apf]: 🛣️ Path Received: 1 waypoints. Engaging motors.
+[planner_local_apf-8] [INFO] [1776380264.381577890] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380264.433229073] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380264.468832780] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380264.490412934] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.755, -0.001)
+[planner_local_apf-8] [INFO] [1776380264.515585533] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380264.553152480] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380264.604307468] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_global_dstar-7] [INFO] [1776380264.627830970] [planner_global_dstar]: D* status: g[start]=1.5 waypoints=1 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380264.646235399] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380264.700695730] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380264.747196306] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380264.799874714] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380264.835040617] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380264.879026298] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380264.911925725] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380264.975044866] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380265.018384475] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380265.076804562] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380265.135243899] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380265.186071726] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380265.226391353] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380265.274375199] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380265.303264086] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380265.351292940] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380265.374856960] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[cleaner_mission_manager-9] [INFO] [1776380265.380631914] [cleaner_mission_manager]: 🧲 GRIP ENGAGED.
+[planner_local_apf-8] [INFO] [1776380265.424507594] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380265.460507762] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380265.491790268] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.755, -0.001)
+[planner_local_apf-8] [INFO] [1776380265.527557326] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380265.560776305] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380265.609971902] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380265.648554157] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380265.709155836] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380265.746291763] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380265.810310436] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380265.845087670] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380265.905918150] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380265.955007689] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380266.006004092] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380266.059358180] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380266.129008348] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380266.184004474] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380266.279529779] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380266.319223502] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380266.383066815] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380266.399701880] [planner_local_apf]: 🛣️ Path Received: 1 waypoints. Engaging motors.
+[planner_local_apf-8] [INFO] [1776380266.420485169] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380266.491205186] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380266.532744631] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380266.578317258] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.755, -0.001)
+[planner_local_apf-8] [INFO] [1776380266.597583544] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380266.643999878] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380266.693092074] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380266.737528392] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380266.787750664] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380266.825130427] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_global_dstar-7] [INFO] [1776380266.832581702] [planner_global_dstar]: D* status: g[start]=1.5 waypoints=1 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380266.866037825] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380266.890029198] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380266.930894521] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380266.968009640] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380267.019077818] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380267.061959457] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380267.125065123] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380267.164874896] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380267.212808692] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380267.258799597] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380267.310417872] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380267.351554989] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380267.395599520] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380267.430649831] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380267.479740102] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380267.526384963] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380267.571515845] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380267.620551391] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380267.651601978] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.755, -0.001)
+[planner_local_apf-8] [INFO] [1776380267.677486374] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380267.723736240] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380267.798429489] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380267.840245494] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380267.884998615] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380267.918591780] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380267.961094375] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380268.000263576] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380268.045511792] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380268.087743601] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380268.126251056] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380268.176566920] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380268.222523725] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380268.263587600] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380268.312017683] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380268.352850281] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380268.402661516] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380268.430238367] [planner_local_apf]: 🛣️ Path Received: 1 waypoints. Engaging motors.
+[planner_local_apf-8] [INFO] [1776380268.453655536] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380268.499977177] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380268.543992558] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380268.595715609] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380268.623146526] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380268.660259719] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380268.694601441] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380268.725933172] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.756, -0.001)
+[planner_local_apf-8] [INFO] [1776380268.751975603] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380268.794310538] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_global_dstar-7] [INFO] [1776380268.836945500] [planner_global_dstar]: D* status: g[start]=1.5 waypoints=1 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380268.840563337] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380268.873953184] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380268.923043364] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380268.954357495] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380268.993292028] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380269.034711663] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380269.071941091] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380269.103888094] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380269.167095877] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380269.208772365] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380269.248552529] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380269.283497697] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380269.324418204] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380269.368291501] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380269.411805003] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380269.442866774] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380269.496097936] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380269.533149988] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380269.571485016] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380269.632042878] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380269.679439778] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380269.719094724] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380269.741609244] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.756, -0.001)
+[planner_local_apf-8] [INFO] [1776380269.759613545] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380269.801198365] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380269.847723233] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380269.886306955] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380269.926448014] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380269.961355140] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380270.011861123] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380270.047887782] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380270.098084938] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380270.144051643] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380270.183742890] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380270.229937297] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380270.276008044] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380270.323287151] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380270.371738776] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_global_dstar-7] [INFO] [1776380270.405883321] [planner_global_dstar]: 🎯 New Target Locked: (200, 200). Engaging immediately.
+[planner_local_apf-8] [INFO] [1776380270.415994601] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380270.467806294] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380270.488893553] [planner_local_apf]: 🛣️ Path Received: 1 waypoints. Engaging motors.
+[planner_local_apf-8] [INFO] [1776380270.506632384] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380270.556999399] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380270.599968397] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380270.658210008] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380270.696393326] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380270.769273578] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380270.824895059] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380270.855819329] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.756, -0.001)
+[planner_local_apf-8] [INFO] [1776380270.879166463] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380270.924219703] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380270.972205291] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380271.017867477] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380271.070894129] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380271.117147203] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380271.179869057] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380271.223854005] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_global_dstar-7] [INFO] [1776380271.261104883] [planner_global_dstar]: D* status: g[start]=16.1 waypoints=11 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380271.276819882] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380271.316578872] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380271.372395238] [planner_local_apf]: 🛤️ Rail Updated: 11 points.
+[planner_local_apf-8] [INFO] [1776380271.467468623] [planner_local_apf]: 🛤️ Rail Updated: 11 points.
+[planner_local_apf-8] [INFO] [1776380271.539517268] [planner_local_apf]: 🛤️ Rail Updated: 11 points.
+[planner_local_apf-8] [INFO] [1776380271.638144597] [planner_local_apf]: 🛤️ Rail Updated: 11 points.
+[planner_local_apf-8] [INFO] [1776380271.744083777] [planner_local_apf]: 🛤️ Rail Updated: 11 points.
+[planner_local_apf-8] [INFO] [1776380271.847204275] [planner_local_apf]: 🛤️ Rail Updated: 11 points.
+[planner_local_apf-8] [INFO] [1776380271.923499504] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.696, -0.048)
+[planner_local_apf-8] [INFO] [1776380271.944233934] [planner_local_apf]: 🛤️ Rail Updated: 11 points.
+[planner_local_apf-8] [INFO] [1776380272.060751714] [planner_local_apf]: 🛤️ Rail Updated: 11 points.
+[planner_local_apf-8] [INFO] [1776380272.152394447] [planner_local_apf]: 🛤️ Rail Updated: 11 points.
+[planner_local_apf-8] [INFO] [1776380272.227880435] [planner_local_apf]: 🛤️ Rail Updated: 10 points.
+[planner_local_apf-8] [INFO] [1776380272.334448361] [planner_local_apf]: 🛤️ Rail Updated: 10 points.
+[planner_local_apf-8] [INFO] [1776380272.429083759] [planner_local_apf]: 🛤️ Rail Updated: 10 points.
+[planner_local_apf-8] [INFO] [1776380272.527696972] [planner_local_apf]: 🛤️ Rail Updated: 9 points.
+[planner_local_apf-8] [INFO] [1776380272.545281161] [planner_local_apf]: 🛣️ Path Received: 9 waypoints. Engaging motors.
+[planner_local_apf-8] [INFO] [1776380272.634109522] [planner_local_apf]: 🛤️ Rail Updated: 10 points.
+[planner_local_apf-8] [INFO] [1776380272.741247252] [planner_local_apf]: 🛤️ Rail Updated: 10 points.
+[planner_local_apf-8] [INFO] [1776380272.821916115] [planner_local_apf]: 🛤️ Rail Updated: 10 points.
+[planner_local_apf-8] [INFO] [1776380272.924352042] [planner_local_apf]: 🛤️ Rail Updated: 9 points.
+[planner_local_apf-8] [INFO] [1776380273.003365208] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.522, -0.118)
+[planner_local_apf-8] [INFO] [1776380273.025177189] [planner_local_apf]: 🛤️ Rail Updated: 8 points.
+[planner_local_apf-8] [INFO] [1776380273.130681407] [planner_local_apf]: 🛤️ Rail Updated: 9 points.
+[planner_local_apf-8] [INFO] [1776380273.216886888] [planner_local_apf]: 🛤️ Rail Updated: 9 points.
+[planner_local_apf-8] [INFO] [1776380273.314960364] [planner_local_apf]: 🛤️ Rail Updated: 8 points.
+[planner_local_apf-8] [INFO] [1776380273.408666163] [planner_local_apf]: 🛤️ Rail Updated: 8 points.
+[planner_global_dstar-7] [INFO] [1776380273.435253465] [planner_global_dstar]: D* status: g[start]=10.7 waypoints=8 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380273.517048553] [planner_local_apf]: 🛤️ Rail Updated: 8 points.
+[planner_local_apf-8] [INFO] [1776380273.620390337] [planner_local_apf]: 🛤️ Rail Updated: 8 points.
+[planner_local_apf-8] [INFO] [1776380273.703544761] [planner_local_apf]: 🛤️ Rail Updated: 8 points.
+[planner_local_apf-8] [INFO] [1776380273.793967676] [planner_local_apf]: 🛤️ Rail Updated: 8 points.
+[planner_local_apf-8] [INFO] [1776380273.890260696] [planner_local_apf]: 🛤️ Rail Updated: 8 points.
+[planner_local_apf-8] [INFO] [1776380273.985662250] [planner_local_apf]: 🛤️ Rail Updated: 8 points.
+[planner_local_apf-8] [INFO] [1776380274.056142832] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.434, -0.164)
+[planner_local_apf-8] [INFO] [1776380274.084778808] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380274.168667855] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380274.255400699] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380274.346082116] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380274.443609621] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380274.553440814] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380274.586816270] [planner_local_apf]: 🛣️ Path Received: 7 waypoints. Engaging motors.
+[planner_local_apf-8] [INFO] [1776380274.644462867] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380274.742323399] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380274.847109769] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380274.939738752] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380275.035584068] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380275.110740237] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.424, -0.160)
+[planner_local_apf-8] [INFO] [1776380275.127220292] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380275.245307051] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380275.366419933] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_global_dstar-7] [INFO] [1776380275.439823605] [planner_global_dstar]: D* status: g[start]=9.6 waypoints=7 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380275.456677847] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380275.555365311] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380275.676028106] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380275.767312328] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380275.863151961] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380275.982595122] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380276.077160120] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380276.157224894] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.422, -0.116)
+[planner_local_apf-8] [INFO] [1776380276.179316827] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380276.266663568] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380276.361666461] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380276.468887150] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380276.579611917] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380276.603304180] [planner_local_apf]: 🛣️ Path Received: 7 waypoints. Engaging motors.
+[planner_local_apf-8] [INFO] [1776380276.679847460] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380276.803706331] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380276.934346755] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380277.031700000] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380277.137255185] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380277.204944128] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.423, -0.080)
+[planner_local_apf-8] [INFO] [1776380277.234938707] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380277.325259321] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380277.436112239] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_global_dstar-7] [INFO] [1776380277.443085469] [planner_global_dstar]: D* status: g[start]=9.2 waypoints=7 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380277.538249055] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380277.629931663] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380277.710476408] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380277.812143154] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380277.906453683] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380277.990717466] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380278.090988117] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380278.170472820] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380278.227824524] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.423, -0.052)
+[planner_local_apf-8] [INFO] [1776380278.245137652] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380278.338509416] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380278.425798772] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380278.503527862] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380278.593319830] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380278.623124291] [planner_local_apf]: 🛣️ Path Received: 7 waypoints. Engaging motors.
+[planner_local_apf-8] [INFO] [1776380278.695325379] [planner_local_apf]: 🛤️ Rail Updated: 7 points.
+[planner_local_apf-8] [INFO] [1776380278.801100748] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380278.900224915] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380278.994176475] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380279.100587283] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380279.194091597] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380279.272449525] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.419, -0.034)
+[planner_local_apf-8] [INFO] [1776380279.297250229] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380279.382629879] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380279.486236490] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380279.590785808] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_global_dstar-7] [INFO] [1776380279.628260630] [planner_global_dstar]: D* status: g[start]=8.8 waypoints=6 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380279.673950774] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380279.775447752] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380279.865966459] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380279.968744213] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380280.068285834] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380280.153479582] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380280.274373930] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380280.369343639] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.401, -0.005)
+[planner_local_apf-8] [INFO] [1776380280.400010782] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380280.507423789] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380280.608941025] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380280.630346369] [planner_local_apf]: 🛣️ Path Received: 6 waypoints. Engaging motors.
+[planner_local_apf-8] [INFO] [1776380280.703133762] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380280.797811419] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380280.900265220] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380281.011284331] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380281.125703111] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380281.224509742] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380281.320472943] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380281.394949581] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.360, 0.040)
+[planner_local_apf-8] [INFO] [1776380281.428743132] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380281.534414184] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_global_dstar-7] [INFO] [1776380281.639305238] [planner_global_dstar]: D* status: g[start]=6.3 waypoints=5 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380281.654178914] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380281.742892049] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380281.857287270] [planner_local_apf]: 🛤️ Rail Updated: 6 points.
+[planner_local_apf-8] [INFO] [1776380281.961006999] [planner_local_apf]: 🛤️ Rail Updated: 5 points.
+[planner_local_apf-8] [INFO] [1776380282.073507088] [planner_local_apf]: 🛤️ Rail Updated: 5 points.
+[planner_local_apf-8] [INFO] [1776380282.169439763] [planner_local_apf]: 🛤️ Rail Updated: 5 points.
+[planner_local_apf-8] [INFO] [1776380282.284207429] [planner_local_apf]: 🛤️ Rail Updated: 5 points.
+[planner_local_apf-8] [INFO] [1776380282.395317108] [planner_local_apf]: 🛤️ Rail Updated: 5 points.
+[planner_local_apf-8] [INFO] [1776380282.474305615] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.279, 0.050)
+[planner_local_apf-8] [INFO] [1776380282.501018410] [planner_local_apf]: 🛤️ Rail Updated: 5 points.
+[planner_local_apf-8] [INFO] [1776380282.604687080] [planner_local_apf]: 🛤️ Rail Updated: 5 points.
+[planner_local_apf-8] [INFO] [1776380282.631939978] [planner_local_apf]: 🛣️ Path Received: 5 waypoints. Engaging motors.
+[planner_local_apf-8] [INFO] [1776380282.706626352] [planner_local_apf]: 🛤️ Rail Updated: 4 points.
+[planner_local_apf-8] [INFO] [1776380282.826387324] [planner_local_apf]: 🛤️ Rail Updated: 4 points.
+[planner_local_apf-8] [INFO] [1776380282.911812625] [planner_local_apf]: 🛤️ Rail Updated: 4 points.
+[planner_local_apf-8] [INFO] [1776380283.031076759] [planner_local_apf]: 🛤️ Rail Updated: 4 points.
+[planner_local_apf-8] [INFO] [1776380283.143715358] [planner_local_apf]: 🛤️ Rail Updated: 4 points.
+[planner_local_apf-8] [INFO] [1776380283.239635383] [planner_local_apf]: 🛤️ Rail Updated: 4 points.
+[planner_local_apf-8] [INFO] [1776380283.364136293] [planner_local_apf]: 🛤️ Rail Updated: 4 points.
+[planner_local_apf-8] [INFO] [1776380283.480519413] [planner_local_apf]: 🛤️ Rail Updated: 4 points.
+[planner_local_apf-8] [INFO] [1776380283.565406992] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.200, 0.074)
+[planner_local_apf-8] [INFO] [1776380283.587090822] [planner_local_apf]: 🛤️ Rail Updated: 4 points.
+[planner_global_dstar-7] [INFO] [1776380283.645933404] [planner_global_dstar]: D* status: g[start]=3.6 waypoints=3 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380283.696165026] [planner_local_apf]: 🛤️ Rail Updated: 4 points.
+[planner_local_apf-8] [INFO] [1776380283.793668605] [planner_local_apf]: 🛤️ Rail Updated: 4 points.
+[planner_local_apf-8] [INFO] [1776380283.893768663] [planner_local_apf]: 🛤️ Rail Updated: 4 points.
+[planner_local_apf-8] [INFO] [1776380283.991424319] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380286.960642633] [planner_local_apf]: 🛣️ Path Received: 3 waypoints. Engaging motors.
+[planner_global_dstar-7] [INFO] [1776380286.968251760] [planner_global_dstar]: D* status: g[start]=3.6 waypoints=3 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380287.006400795] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.169, 0.084)
+[planner_local_apf-8] [INFO] [1776380287.026260443] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380287.146490477] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380287.236627757] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380287.338571888] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[cleaner_mission_manager-9] [INFO] [1776380287.355245086] [cleaner_mission_manager]: 🏁 [SUCCESS] Garbage Deposited.
+[planner_local_apf-8] [INFO] [1776380287.444530867] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380287.575006015] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380287.677165748] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380287.793142507] [planner_local_apf]: 🛤️ Rail Updated: 3 points.
+[planner_local_apf-8] [INFO] [1776380287.949069106] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380288.044844205] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.126, 0.085)
+[planner_local_apf-8] [INFO] [1776380288.073358539] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380288.205016380] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380288.294408128] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380288.394936365] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380288.516534993] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380288.619190005] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380288.751795045] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380288.872702501] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380288.978552396] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380289.012121545] [planner_local_apf]: 🛣️ Path Received: 2 waypoints. Engaging motors.
+[planner_global_dstar-7] [INFO] [1776380289.038440719] [planner_global_dstar]: D* status: g[start]=1.5 waypoints=1 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380289.063873287] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.094, 0.069)
+[planner_local_apf-8] [INFO] [1776380289.089042861] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380289.217351634] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380289.321209597] [planner_local_apf]: 🛤️ Rail Updated: 2 points.
+[planner_local_apf-8] [INFO] [1776380289.422382713] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380289.535605234] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380289.626310209] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380289.735263779] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380289.850213129] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380289.969353605] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380290.078665319] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380290.150684447] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.067, 0.050)
+[planner_local_apf-8] [INFO] [1776380290.190795531] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380290.291670361] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380290.403979508] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380290.499654231] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380290.605677011] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380290.712796133] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380290.841069247] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380290.953136391] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_global_dstar-7] [INFO] [1776380291.042369739] [planner_global_dstar]: D* status: g[start]=0.0 waypoints=0 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380291.075892595] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380291.102212778] [planner_local_apf]: 🛣️ Path Received: 1 waypoints. Engaging motors.
+[planner_local_apf-8] [INFO] [1776380291.169574653] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.048, 0.036)
+[planner_local_apf-8] [INFO] [1776380291.201314029] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380291.349232565] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380291.462265058] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380291.553155660] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380291.670841649] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380291.777926579] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380291.878612484] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380291.929575153] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380291.985019533] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380292.025550087] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380292.095015911] [planner_local_apf]: 🛤️ Rail Updated: 1 points.
+[planner_local_apf-8] [INFO] [1776380292.168036414] [planner_local_apf]: 🏁 ARRIVED AT LOCAL GOAL.
+[planner_local_apf-8] [INFO] [1776380292.214924376] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.037, 0.028)
+[planner_local_apf-8] [INFO] [1776380293.223362849] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.037, 0.028)
+[planner_global_dstar-7] [INFO] [1776380293.263788811] [planner_global_dstar]: D* status: g[start]=0.0 waypoints=0 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380294.233926264] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.037, 0.028)
+[planner_local_apf-8] [INFO] [1776380295.235779627] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.037, 0.028)
+[planner_global_dstar-7] [INFO] [1776380295.432308189] [planner_global_dstar]: D* status: g[start]=0.0 waypoints=0 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380296.239127902] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.037, 0.028)
+[planner_local_apf-8] [INFO] [1776380297.255440696] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.037, 0.028)
+[planner_global_dstar-7] [INFO] [1776380297.648379477] [planner_global_dstar]: D* status: g[start]=0.0 waypoints=0 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380298.264695834] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.037, 0.028)
+[planner_local_apf-8] [INFO] [1776380299.279894502] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.037, 0.028)
+[planner_global_dstar-7] [INFO] [1776380299.708764060] [planner_global_dstar]: D* status: g[start]=0.0 waypoints=0 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380300.287384309] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.037, 0.028)
+[planner_local_apf-8] [INFO] [1776380301.299238860] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.037, 0.028)
+[planner_global_dstar-7] [INFO] [1776380301.843974900] [planner_global_dstar]: D* status: g[start]=0.0 waypoints=0 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380302.317402876] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.037, 0.028)
+[planner_local_apf-8] [INFO] [1776380303.346315812] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.036, 0.028)
+[planner_global_dstar-7] [INFO] [1776380304.028506739] [planner_global_dstar]: D* status: g[start]=0.0 waypoints=0 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380304.361106927] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.036, 0.028)
+[planner_local_apf-8] [INFO] [1776380305.378748714] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.036, 0.028)
+[planner_global_dstar-7] [INFO] [1776380306.034454457] [planner_global_dstar]: D* status: g[start]=0.0 waypoints=0 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380306.392489046] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.036, 0.028)
+[planner_local_apf-8] [INFO] [1776380307.416213057] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.036, 0.027)
+[planner_global_dstar-7] [INFO] [1776380308.043356799] [planner_global_dstar]: D* status: g[start]=0.0 waypoints=0 reached_goal=True
+[planner_local_apf-8] [INFO] [1776380308.418288255] [planner_local_apf]: 💓 ODOM HEARTBEAT: (0.036, 0.027)

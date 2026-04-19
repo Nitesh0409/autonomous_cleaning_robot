@@ -1,0 +1,36 @@
+[INFO] [launch]: All log files can be found below /home/cclab/.ros/log/2026-04-14-19-05-14-684887-CCLAB1PC19-544
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [547]
+[INFO] [robot_state_publisher-2]: process started with pid [548]
+[INFO] [create-3]: process started with pid [549]
+[INFO] [parameter_bridge-4]: process started with pid [551]
+[INFO] [planner_global_dstar-5]: process started with pid [552]
+[INFO] [planner_local_apf-6]: process started with pid [553]
+[INFO] [cleaner_mission_manager-7]: process started with pid [554]
+[INFO] [rviz2-8]: process started with pid [555]
+[robot_state_publisher-2] [INFO] [1776193516.822327106] [robot_state_publisher]: Robot initialized
+[cleaner_mission_manager-7] [INFO] [1776193517.766444612] [cleaner_mission_manager]: Cleaner Mission Manager Active. Target: Garbage.
+[rviz2-8] [INFO] [1776193517.788796315] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-8] [INFO] [1776193517.788930579] [rviz2]: OpenGl version: 4.5 (GLSL 4.5)
+[planner_global_dstar-5] [INFO] [1776193517.823527816] [planner_global_dstar]: D* Lite Global Planner Initialized.
+[planner_local_apf-6] [INFO] [1776193517.838941481] [planner_local_apf]: APF node restored. Gen 4 (Differential) Active.
+[rviz2-8] [INFO] [1776193517.874354136] [rviz2]: Stereo is NOT SUPPORTED
+[parameter_bridge-4] [INFO] [1776193517.911564449] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/cmd_vel (geometry_msgs/msg/Twist) -> /cmd_vel (gz.msgs.Twist)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1776193517.917089719] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/red_ball_cmd_vel (geometry_msgs/msg/Twist) -> /model/red_ball/cmd_vel (gz.msgs.Twist)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1776193517.918345699] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/odom (gz.msgs.Odometry) -> /odom (nav_msgs/msg/Odometry)] (Lazy 0)
+[create-3] [INFO] [1776193517.922124459] [ros_gz_sim]: Entity creation successful.
+[parameter_bridge-4] [INFO] [1776193517.926256238] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/scan (gz.msgs.LaserScan) -> /scan (sensor_msgs/msg/LaserScan)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1776193517.931548882] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/tf (gz.msgs.Pose_V) -> /tf (tf2_msgs/msg/TFMessage)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1776193517.936316275] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1776193517.937796716] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/joint_states (gz.msgs.Model) -> /joint_states (sensor_msgs/msg/JointState)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1776193517.939534078] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/left_arm/shoulder/cmd_pos (std_msgs/msg/Float64) -> /left_arm/shoulder/cmd_pos (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1776193517.942576208] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/left_arm/elbow/cmd_pos (std_msgs/msg/Float64) -> /left_arm/elbow/cmd_pos (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1776193517.943799532] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/right_arm/shoulder/cmd_pos (std_msgs/msg/Float64) -> /right_arm/shoulder/cmd_pos (gz.msgs.Double)] (Lazy 0)
+[parameter_bridge-4] [INFO] [1776193517.944994626] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/right_arm/elbow/cmd_pos (std_msgs/msg/Float64) -> /right_arm/elbow/cmd_pos (gz.msgs.Double)] (Lazy 0)
+[gazebo-1] [1;31m[Err] [LinearBatteryPlugin.cc:240] [0m[1;31mNo <capacity> or incorrect value specified. Capacity should be [0m[1;31mgreater than 0.[0m
+[INFO] [create-3]: process has finished cleanly [pid 549]
+[rviz2-8] [INFO] [1776193518.686554590] [rviz2]: Stereo is NOT SUPPORTED
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="robot"]/link[@name="base_footprint"]/sensor[@name="laser"]/gz_frame_id:/mnt/c/SOLIDWORKS Data/browser/Projects/Robotics Assignment/Robot/install/robot/share/robot/models/mecanum_bot.urdf:L0]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="robot"]/link[@name="base_footprint"]/sensor[@name="laser"]/gz_frame_id:<data-string>:L147]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[planner_global_dstar-5] [INFO] [1776193521.737003566] [planner_global_dstar]: New Target Locked: (140, 120)
+[parameter_bridge-4] [INFO] [1776193521.797010720] [ros_gz_bridge]: Passing message from ROS geometry_msgs/msg/Twist to Gazebo gz.msgs.Twist (showing msg only once per type)
