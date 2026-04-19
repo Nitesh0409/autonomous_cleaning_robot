@@ -1,23 +1,22 @@
 Panels:
   - Class: rviz_common/Displays
-    Help Height: 78
+    Help Height: 70
     Name: Displays
     Property Tree Widget:
       Expanded:
         - /Global Options1
         - /Status1
         - /RobotModel1
-        - /LaserScan1
       Splitter Ratio: 0.5
-    Tree Height: 557
+    Tree Height: 70
   - Class: rviz_common/Selection
     Name: Selection
   - Class: rviz_common/Tool Properties
-    Name: Tool Properties
     Expanded:
       - /2D Goal Pose1
       - /Publish Point1
-    Splitter Ratio: 0.58
+    Name: Tool Properties
+    Splitter Ratio: 0.5799999833106995
   - Class: rviz_common/Views
     Expanded:
       - /Current View1
@@ -32,7 +31,7 @@ Visualization Manager:
       Color: 160; 160; 160
       Enabled: true
       Line Style:
-        Line Width: 0.03
+        Line Width: 0.029999999329447746
         Value: Lines
       Name: Grid
       Normal Cell Count: 0
@@ -44,9 +43,39 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: odom
       Value: true
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: "Projectile & Cannon"
+      Namespaces:
+        {}
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /projectile_marker
+      Value: true
+    - Alpha: 1
+      Class: rviz_default_plugins/PointStamped
+      Color: 204; 41; 204
+      Enabled: true
+      History Length: 1
+      Name: Predicted Landing Zone
+      Radius: 0.20000000298023224
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /target_landing_zone
+      Value: true
     - Class: rviz_default_plugins/MarkerArray
       Enabled: true
       Name: Force Vectors
+      Namespaces:
+        {}
       Topic:
         Depth: 5
         Durability Policy: Volatile
@@ -54,7 +83,46 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /force_markers
       Value: true
-    - Class: rviz_default_plugins/RobotModel
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Navigation Markers
+      Namespaces:
+        lookahead: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /navigation_markers
+      Value: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Detected Obstacles
+      Namespaces:
+        {}
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /detected_obstacles
+      Value: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Obstacle Zones
+      Namespaces:
+        {}
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /obstacle_zones
+      Value: true
+    - Alpha: 1
+      Class: rviz_default_plugins/RobotModel
+      Collision Enabled: false
+      Description File: ""
       Description Source: Topic
       Description Topic:
         Depth: 5
@@ -63,24 +131,228 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /robot_description
       Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        arm_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_lower:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_upper:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        base_footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        collection_bucket:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        finger_left:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        finger_right:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_laser_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_left_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_right_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gripper_head:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        imu_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        pedestal:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_laser_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_left_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_right_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Mass Properties:
+        Inertia: false
+        Mass: false
       Name: RobotModel
-      Visual Enabled: true
+      TF Prefix: ""
+      Update Interval: 0
       Value: true
-    - Class: rviz_default_plugins/LaserScan
+      Visual Enabled: true
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: Camera Feed
+      Normalize Range: true
       Topic:
         Depth: 5
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Best Effort
-        Value: /scan
-      Size (Pixels): 3
-      Style: Points
-      Enabled: true
-      Name: LaserScan
+        Value: /camera/image
       Value: true
     - Class: rviz_default_plugins/TF
       Enabled: true
+      Filter (blacklist): ""
+      Filter (whitelist): ""
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        arm_base:
+          Value: true
+        base_footprint:
+          Value: true
+        base_link:
+          Value: true
+        collection_bucket:
+          Value: true
+        dumpster:
+          Value: true
+        front_laser_link:
+          Value: true
+        imu_link:
+          Value: true
+        odom:
+          Value: true
+        pedestal:
+          Value: true
+        rear_laser_link:
+          Value: true
+      Marker Scale: 1
       Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        odom:
+          dumpster:
+            {}
+      Update Interval: 0
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz_default_plugins/Path
+      Color: 0; 255; 255
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: Global Plan
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /plan
+      Value: true
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: Search Frontier
+      Namespaces:
+        grid: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /search_frontier
+      Value: true
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: Obstacle Grid
+      Namespaces:
+        occupied_grid: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /grid_markers
+      Value: true
+    - Alpha: 1
+      Axes Length: 1
+      Axes Radius: 0.10000000149011612
+      Class: rviz_default_plugins/Pose
+      Color: 255; 0; 0
+      Enabled: true
+      Head Length: 0.30000001192092896
+      Head Radius: 0.10000000149011612
+      Name: Goal Pose
+      Shaft Length: 1
+      Shaft Radius: 0.05000000074505806
+      Shape: Arrow
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /goal_pose
       Value: true
   Enabled: true
   Global Options:
@@ -90,11 +362,12 @@ Visualization Manager:
   Name: root
   Tools:
     - Class: rviz_default_plugins/Interact
-      Item Labeling: true
+      Hide Inactive Objects: true
     - Class: rviz_default_plugins/MoveCamera
     - Class: rviz_default_plugins/Select
     - Class: rviz_default_plugins/FocusCamera
     - Class: rviz_default_plugins/Measure
+      Line color: 128; 128; 0
     - Class: rviz_default_plugins/SetGoal
       Topic:
         Depth: 5
@@ -103,6 +376,7 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /goal_pose
     - Class: rviz_default_plugins/PublishPoint
+      Single click: true
       Topic:
         Depth: 5
         Durability Policy: Volatile
@@ -112,23 +386,39 @@ Visualization Manager:
   Transformation:
     Current:
       Class: rviz_default_plugins/TF
+  Value: true
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
       Distance: 10
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
       Name: Current View
-      Pitch: 0.7
-      Yaw: 0.7
-      Variable Speed:
-        Value: true
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 0.699999988079071
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz_default_plugins)
+      Yaw: 0.699999988079071
     Saved: ~
 Window Geometry:
+  Camera Feed:
+    collapsed: false
   Displays:
     collapsed: false
-  Height: 846
-  Hide Left Menu: false
-  Hide Right Menu: false
-  Hide Top Menu: false
+  Height: 530
+  Hide Left Dock: false
+  Hide Right Dock: false
+  QMainWindow State: 000000ff00000000fd00000001000000000000019b000001bcfc0200000005fb0000001600430061006d00650072006100200046006500650064010000003b000000160000001600fffffffb000000100044006900730070006c00610079007301000000570000006b000000c700fffffffb0000001200530065006c0065006300740069006f006e01000000c80000005c0000005c00fffffffb0000001e0054006f006f006c002000500072006f0070006500720074006900650073010000012a0000005c0000005c00fffffffb0000000a00560069006500770073010000018c0000006b000000a000ffffff0000030f000001bc00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Tool Properties:
@@ -136,5 +426,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1200
-  X: 72
-  Y: 60
+  X: 40
+  Y: 28

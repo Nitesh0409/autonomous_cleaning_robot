@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+    <world name="slalom_gauntlet">
+        <physics name="1ms" type="ignored">
+            <max_step_size>0.001</max_step_size>
+            <real_time_factor>1.0</real_time_factor>
+        </physics>
+        <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+        <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+        <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+        <plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact"/>
+        <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+            <render_engine>ogre2</render_engine>
+        </plugin>
+        <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
+
+        <light type="directional" name="sun">
+            <cast_shadows>true</cast_shadows>
+            <pose>0 0 10 0 0 0</pose>
+            <direction>-0.5 0.1 -0.9</direction>
+        </light>
+
+        <!-- THE GAUNTLET: 3 Pillars requiring 3 distinct strafe maneuvers -->
+        
+        <!-- Pillar 1: Right Side Obstacle -->
+        <model name="wall_1">
+            <static>true</static>
+            <pose>2.0 -0.5 0.5 0 0 0</pose>
+            <link name="link">
+                <collision name="c1"><geometry><box><size>0.2 1.5 1.0</size></box></geometry></collision>
+                <visual name="v1"><geometry><box><size>0.2 1.5 1.0</size></box></geometry>
+                    <material><ambient>0.2 0.5 0.2 1</ambient><diffuse>0.2 0.5 0.2 1</diffuse></material>
+                </visual>
+            </link>
+        </model>
+
+        <!-- Pillar 2: Left Side Obstacle -->
+        <model name="wall_2">
+            <static>true</static>
+            <pose>4.5 0.5 0.5 0 0 0</pose>
+            <link name="link">
+                <collision name="c1"><geometry><box><size>0.2 1.5 1.0</size></box></geometry></collision>
+                <visual name="v1"><geometry><box><size>0.2 1.5 1.0</size></box></geometry>
+                    <material><ambient>0.2 0.2 0.6 1</ambient><diffuse>0.2 0.2 0.6 1</diffuse></material>
+                </visual>
+            </link>
+        </model>
+
+        <!-- Pillar 3: Center Block -->
+        <model name="wall_3">
+            <static>true</static>
+            <pose>7.0 0.0 0.5 0 0 0</pose>
+            <link name="link">
+                <collision name="c1"><geometry><box><size>1.0 0.4 1.0</size></box></geometry></collision>
+                <visual name="v1"><geometry><box><size>1.0 0.4 1.0</size></box></geometry>
+                    <material><ambient>0.6 0.2 0.2 1</ambient><diffuse>0.6 0.2 0.2 1</diffuse></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="ground_plane">
+            <static>true</static>
+            <link name="link">
+                <collision name="collision"><geometry><plane><normal>0 0 1</normal><size>30 30</size></plane></geometry></collision>
+                <visual name="visual">
+                    <geometry><plane><normal>0 0 1</normal><size>30 30</size></plane></geometry>
+                    <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material>
+                </visual>
+            </link>
+        </model>
+    </world>
+</sdf>

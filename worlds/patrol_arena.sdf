@@ -1,0 +1,238 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="patrol_arena">
+
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin filename="gz-sim-physics-system"           name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-sensors-system"           name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="gz-sim-user-commands-system"     name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-contact-system"           name="gz::sim::systems::Contact"/>
+    <plugin filename="gz-sim-imu-system"               name="gz::sim::systems::Imu"/>
+
+    <light type="directional" name="overhead">
+      <cast_shadows>false</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>1.0 1.0 1.0 1</diffuse>
+      <specular>0.05 0.05 0.05 1</specular>
+      <direction>0 0 -1</direction>
+    </light>
+
+    <!-- FLOOR -->
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="col"><geometry><plane><normal>0 0 1</normal><size>20 20</size></plane></geometry></collision>
+        <visual name="vis">
+          <geometry><plane><normal>0 0 1</normal><size>20 20</size></plane></geometry>
+          <material><ambient>0.38 0.36 0.33 1</ambient><diffuse>0.38 0.36 0.33 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!--
+      OUTER WALLS  —  6×6 m room, T=0.15 m thick, H=0.35 m
+      CORNER FIX: N/S walls = 6.30 m (full outer width, includes corners)
+                  E/W walls = 5.85 m (butts inner face of N/S, no overlap)
+      Wall centre Z = H/2 = 0.175 m  (bottom sits flush on floor)
+    -->
+    <model name="wall_north">
+      <static>true</static><pose>0 3 0.175 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>6.30 0.15 0.35</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>6.30 0.15 0.35</size></box></geometry>
+          <material><ambient>0.70 0.58 0.42 1</ambient><diffuse>0.70 0.58 0.42 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_south">
+      <static>true</static><pose>0 -3 0.175 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>6.30 0.15 0.35</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>6.30 0.15 0.35</size></box></geometry>
+          <material><ambient>0.70 0.58 0.42 1</ambient><diffuse>0.70 0.58 0.42 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_east">
+      <static>true</static><pose>3 0 0.175 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.15 5.85 0.35</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.15 5.85 0.35</size></box></geometry>
+          <material><ambient>0.70 0.58 0.42 1</ambient><diffuse>0.70 0.58 0.42 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_west">
+      <static>true</static><pose>-3 0 0.175 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.15 5.85 0.35</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.15 5.85 0.35</size></box></geometry>
+          <material><ambient>0.70 0.58 0.42 1</ambient><diffuse>0.70 0.58 0.42 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!--
+      INTERIOR LAYOUT  (slate-blue internal walls, same H=0.35 m)
+
+        ┌────────────────────────────┐  N wall
+        │ NW alcove ║gap║  NE area  │
+        │           ║   │   [BIN]   │
+        ├───────────╝   │           │  ← NW vertical divider (x=−1.2, gap at S end)
+        │               └──── p1 ───┤  ← p1 stub from E wall (y=+1.0)
+        │      centre passage       │
+        │──── p2 ────┐              │  ← p2 stub from W wall (y=−0.8)
+        │            │              │
+        │ SW area    │  SE  ◆  area │  ← ◆ pillar (1.2,−1.6)
+        └────────────────────────────┘  S wall
+
+      Internal obstacles are ALSO marked in the planners via pre_populate_static_map
+      (D* Lite) and _mark_walls + _mark_interior (A*).
+    -->
+
+    <!-- NW alcove divider: x=−1.2, spans y: −0.6 → +2.925 (centre at y=+1.1625) -->
+    <model name="div_nw_v">
+      <static>true</static><pose>-1.2 1.1625 0.175 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.12 3.525 0.35</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.12 3.525 0.35</size></box></geometry>
+          <material><ambient>0.32 0.42 0.72 1</ambient><diffuse>0.32 0.42 0.72 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- p1: horizontal stub y=+1.0, x: 0.4 → 2.925 (centre x=+1.6625, len=2.525) -->
+    <model name="div_p1">
+      <static>true</static><pose>1.6625 1.0 0.175 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>2.525 0.12 0.35</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>2.525 0.12 0.35</size></box></geometry>
+          <material><ambient>0.32 0.42 0.72 1</ambient><diffuse>0.32 0.42 0.72 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- p2: horizontal stub y=−0.8, x: −2.925 → 0.6 (centre x=−1.1625, len=3.525) -->
+    <model name="div_p2">
+      <static>true</static><pose>-1.1625 -0.8 0.175 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>3.525 0.12 0.35</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>3.525 0.12 0.35</size></box></geometry>
+          <material><ambient>0.32 0.42 0.72 1</ambient><diffuse>0.32 0.42 0.72 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- SE pillar chokepoint -->
+    <model name="pillar_se">
+      <static>true</static><pose>1.2 -1.6 0.175 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.20 0.20 0.35</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.20 0.20 0.35</size></box></geometry>
+          <material><ambient>0.50 0.40 0.28 1</ambient><diffuse>0.50 0.40 0.28 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!--
+      COLLECTION BIN  —  open-top green box at NE corner (2.3, 2.3)
+      Same corner-join rule: N/S walls full width, E/W walls inner only.
+    -->
+    <model name="bin_n">
+      <static>true</static><pose>2.3 2.527 0.10 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.54 0.05 0.20</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.54 0.05 0.20</size></box></geometry>
+          <material><ambient>0.10 0.78 0.22 1</ambient><diffuse>0.10 0.78 0.22 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="bin_s">
+      <static>true</static><pose>2.3 2.073 0.10 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.54 0.05 0.20</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.54 0.05 0.20</size></box></geometry>
+          <material><ambient>0.10 0.78 0.22 1</ambient><diffuse>0.10 0.78 0.22 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="bin_e">
+      <static>true</static><pose>2.577 2.3 0.10 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.05 0.45 0.20</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.05 0.45 0.20</size></box></geometry>
+          <material><ambient>0.10 0.78 0.22 1</ambient><diffuse>0.10 0.78 0.22 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="bin_w">
+      <static>true</static><pose>2.023 2.3 0.10 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.05 0.45 0.20</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.05 0.45 0.20</size></box></geometry>
+          <material><ambient>0.10 0.78 0.22 1</ambient><diffuse>0.10 0.78 0.22 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="bin_floor">
+      <static>true</static><pose>2.3 2.3 0.005 0 0 0</pose>
+      <link name="link">
+        <visual name="v">
+          <geometry><box><size>0.45 0.45 0.01</size></box></geometry>
+          <material><ambient>0.05 0.55 0.10 1</ambient><diffuse>0.05 0.55 0.10 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- DYNAMIC OBSTACLES — keep in sync with obstacle_tracker.py -->
+    <!-- Actor 0: linear bounce x=−1.6, y: −1.5 ↔ +1.5, period 8 s -->
+    <actor name="dyn_obs_0">
+      <pose>-1.6 -1.5 0.06 0 0 0</pose>
+      <link name="body">
+        <visual name="v">
+          <geometry><box><size>0.22 0.22 0.12</size></box></geometry>
+          <material><ambient>0.9 0.15 0.1 1</ambient><diffuse>0.9 0.15 0.1 1</diffuse></material>
+        </visual>
+      </link>
+      <script>
+        <loop>true</loop><auto_start>true</auto_start>
+        <trajectory id="0" type="linear">
+          <waypoint><time>0</time><pose>-1.6 -1.5 0.06 0 0 0</pose></waypoint>
+          <waypoint><time>4</time><pose>-1.6  1.5 0.06 0 0 0</pose></waypoint>
+          <waypoint><time>8</time><pose>-1.6 -1.5 0.06 0 0 0</pose></waypoint>
+        </trajectory>
+      </script>
+    </actor>
+
+    <!-- Actor 1: square circuit ±1.0 m, period 10 s -->
+    <actor name="dyn_obs_1">
+      <pose>1.0 -1.0 0.06 0 0 0</pose>
+      <link name="body">
+        <visual name="v">
+          <geometry><cylinder><radius>0.14</radius><length>0.12</length></cylinder></geometry>
+          <material><ambient>0.9 0.5 0.05 1</ambient><diffuse>0.9 0.5 0.05 1</diffuse></material>
+        </visual>
+      </link>
+      <script>
+        <loop>true</loop><auto_start>true</auto_start>
+        <trajectory id="0" type="linear">
+          <waypoint><time>0</time>  <pose> 1.0 -1.0 0.06 0 0 0</pose></waypoint>
+          <waypoint><time>2.5</time><pose> 1.0  1.0 0.06 0 0 0</pose></waypoint>
+          <waypoint><time>5</time>  <pose>-1.0  1.0 0.06 0 0 0</pose></waypoint>
+          <waypoint><time>7.5</time><pose>-1.0 -1.0 0.06 0 0 0</pose></waypoint>
+          <waypoint><time>10</time> <pose> 1.0 -1.0 0.06 0 0 0</pose></waypoint>
+        </trajectory>
+      </script>
+    </actor>
+
+  </world>
+</sdf>

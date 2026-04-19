@@ -1,0 +1,208 @@
+Panels:
+  - Class: rviz_common/Displays
+    Help Height: 0
+    Name: Displays
+    Property Tree Widget:
+      Expanded: ~
+      Splitter Ratio: 0.5
+    Tree Height: 600
+  - Class: rviz_common/Selection
+    Name: Selection
+  - Class: rviz_common/Views
+    Expanded: ~
+    Name: Views
+    Splitter Ratio: 0.55
+
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 1
+      Cell Size: 0.5
+      Class: rviz_default_plugins/Grid
+      Color: 80; 80; 80
+      Enabled: true
+      Name: Grid
+      Plane Cell Count: 20
+      Plane: XY
+      Reference Frame: map
+      Value: true
+
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Frame Timeout: 15
+      Name: TF
+      Show Arrows: false
+      Show Axes: true
+      Show Names: true
+      Marker Scale: 0.3
+      Value: true
+
+    # ── Robot 0 ──────────────────────────────────────────────────────────────
+    - Alpha: 1
+      Class: rviz_default_plugins/RobotModel
+      Description Topic: /robot_0/robot_description
+      Enabled: true
+      Name: Robot 0
+      TF Prefix: robot_0
+      Value: true
+
+    - Class: rviz_default_plugins/Path
+      Color: 30; 144; 255
+      Enabled: true
+      Line Style: Lines
+      Line Width: 0.03
+      Name: Patrol Path 0
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_0/patrol_path
+      Value: true
+
+    - Class: rviz_default_plugins/Path
+      Color: 100; 220; 100
+      Enabled: true
+      Line Style: Lines
+      Line Width: 0.04
+      Name: Plan 0
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_0/plan
+      Value: true
+
+    - Class: rviz_default_plugins/LaserScan
+      Color: 255; 50; 50
+      Enabled: true
+      Name: Scan 0 Front
+      Size (m): 0.04
+      Style: Spheres
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_0/front_scan
+      Value: true
+
+    - Class: rviz_default_plugins/LaserScan
+      Color: 255; 120; 30
+      Enabled: true
+      Name: Scan 0 Rear
+      Size (m): 0.04
+      Style: Spheres
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_0/rear_scan
+      Value: true
+
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Goal Marker 0
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_0/goal_marker
+      Value: true
+
+    # ── Robot 1 ──────────────────────────────────────────────────────────────
+    - Alpha: 1
+      Class: rviz_default_plugins/RobotModel
+      Description Topic: /robot_1/robot_description
+      Enabled: true
+      Name: Robot 1
+      TF Prefix: robot_1
+      Value: true
+
+    - Class: rviz_default_plugins/Path
+      Color: 255; 165; 0
+      Enabled: true
+      Line Style: Lines
+      Line Width: 0.03
+      Name: Patrol Path 1
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_1/patrol_path
+      Value: true
+
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Goal Marker 1
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_1/goal_marker
+      Value: true
+
+    # ── Semantic Feature Mapping ─────────────────────────────────────────────
+    - Class: rviz_default_plugins/PoseArray
+      Color: 220; 50; 50
+      Enabled: true
+      Name: Semantic Targets
+      Shape: Axes
+      Axes Length: 0.15
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /perception/semantic_features
+      Value: true
+
+  Enabled: true
+  Global Options:
+    Background Color: 22; 22; 30
+    Fixed Frame: map
+    Frame Rate: 30
+
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/SetGoal
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_0/goal_pose
+
+  Views:
+    Current:
+      Class: rviz_default_plugins/TopDownOrtho
+      Scale: 130
+      Target Frame: map
+      X: 0
+      Y: 0
+    Saved: ~
+
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 900
+  Hide Left Dock: false
+  Hide Right Dock: false
+  QMainWindow State: 000000ff00000000fd00000004000000000000015600000338fc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f00700065007200740069006500730000000000ffffffff0000009500ffffff000000010000010f00000338fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000003b00000338000000a000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000006140000003dfc0000000000000100000100000338fc0200000033fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000000ffffffff0000000000000000fb000000100044006900730070006c00610079007301000000000000061400000130000000000000000300000614000000a9fc0100000002fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000000ffffffff0000000000000000fb0000001200530065006c0065006300740069006f006e000000000000000000000000000000000000000001000000000000000000000000ffffffff
+  Width: 1400

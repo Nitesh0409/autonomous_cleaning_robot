@@ -1,0 +1,21 @@
+# ROS2 build folders
+build/
+install/
+log/
+
+# Python files
+*.pyc
+__pycache__/
+
+# VSCode or other editors
+.vscode/
+.idea/
+*.swp
+
+# Local environments and temp folders
+map_env/
+.claude/
+.antigravity/
+.ipynb_checkpoints/
+*.pyc
+__pycache__/

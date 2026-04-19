@@ -1,0 +1,7 @@
+
+CALIBRATION FINAL REPORT
+==================================================
+TEST            | ODOM       | ACTUAL     | DRIFT
+Forward 1.0m    |   1.000m |   0.000m | +0.0%
+Turn 90.0°      |  90.212° |   0.000° | +0.0%
+Strafe 0.5m     |   0.501m |   0.000m | +0.0%

@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+    <world name="operation_sentinel">
+        <physics name="1ms" type="ignored">
+            <max_step_size>0.001</max_step_size>
+            <real_time_factor>1.0</real_time_factor>
+        </physics>
+        <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+        <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+        <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+        <plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact"/>
+
+        <light type="directional" name="sun">
+            <cast_shadows>true</cast_shadows>
+            <pose>0 0 10 0 0 0</pose>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.2 0.2 0.2 1</specular>
+            <direction>-0.5 0.1 -0.9</direction>
+        </light>
+
+        <!-- STATIC LEVEL 1: OUTER MAZE -->
+        <model name="outer_walls">
+            <static>true</static>
+            <link name="border">
+                <collision name="c1"><pose>0 5 0.5 0 0 0</pose><geometry><box><size>10 0.1 1.0</size></box></geometry></collision>
+                <visual name="v1"><pose>0 5 0.5 0 0 0</pose><geometry><box><size>10 0.1 1.0</size></box></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
+                
+                <collision name="c2"><pose>0 -5 0.5 0 0 0</pose><geometry><box><size>10 0.1 1.0</size></box></geometry></collision>
+                <visual name="v2"><pose>0 -5 0.5 0 0 0</pose><geometry><box><size>10 0.1 1.0</size></box></geometry><material><ambient>0.2 0.2 0.2 1</ambient><diffuse>0.2 0.2 0.2 1</diffuse></material></visual>
+                
+                <collision name="c3"><pose>2 1.5 0.5 0 0 0</pose><geometry><box><size>0.1 3 1.0</size></box></geometry></collision>
+                <visual name="v3"><pose>2 1.5 0.5 0 0 0</pose><geometry><box><size>0.1 3 1.0</size></box></geometry><material><ambient>0.4 0.4 0.4 1</ambient><diffuse>0.4 0.4 0.4 1</diffuse></material></visual>
+            </link>
+        </model>
+
+        <!-- DYNAMIC LEVEL 2: THE KINETIC BLOCK -->
+        <model name="dynamic_obstacle">
+            <pose>3.5 0 0.25 0 0 0</pose>
+            <link name="box">
+                <inertial><mass>10.0</mass><inertia><ixx>0.4</ixx><iyy>0.4</iyy><izz>0.4</izz></inertia></inertial>
+                <collision name="collision"><geometry><box><size>0.5 0.5 0.5</size></box></geometry></collision>
+                <visual name="visual"><geometry><box><size>0.5 0.5 0.5</size></box></geometry><material><ambient>0.8 0.4 0 1</ambient><diffuse>0.8 0.4 0 1</diffuse></material></visual>
+            </link>
+            <plugin filename="gz-sim-trajectory-follower-system" name="gz::sim::systems::TrajectoryFollower">
+                <link_name>box</link_name>
+                <waypoint><time>0.0</time><pose>3.5 0 0.25 0 0 0</pose></waypoint>
+                <waypoint><time>4.0</time><pose>3.5 1.5 0.25 0 0 0</pose></waypoint>
+                <waypoint><time>8.0</time><pose>3.5 -1.5 0.25 0 0 0</pose></waypoint>
+                <waypoint><time>12.0</time><pose>3.5 0 0.25 0 0 0</pose></waypoint>
+                <loop>true</loop>
+            </plugin>
+        </model>
+
+        <!-- HIGH-VALUE TARGETS -->
+        <model name="target_1"><pose>4.5 4.5 0.05 0 0 0</pose><link name="l"><collision name="c"><geometry><box><size>0.04 0.04 0.04</size></box></geometry></collision><visual name="v"><geometry><box><size>0.04 0.04 0.04</size></box></geometry><material><ambient>1 0 0 1</ambient><diffuse>1 0 0 1</diffuse></material></visual></link></model>
+
+        <model name="ground_plane">
+            <static>true</static>
+            <link name="link">
+                <collision name="collision"><geometry><plane><normal>0 0 1</normal><size>20 20</size></plane></geometry></collision>
+                <visual name="visual"><geometry><plane><normal>0 0 1</normal><size>20 20</size></plane></geometry><material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
+            </link>
+        </model>
+    </world>
+</sdf>

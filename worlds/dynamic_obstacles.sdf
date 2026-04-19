@@ -1,0 +1,125 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="dynamic_obstacles">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin filename="gz-sim-physics-system"           name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-sensors-system"           name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="gz-sim-user-commands-system"     name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-contact-system"           name="gz::sim::systems::Contact"/>
+    <plugin filename="gz-sim-imu-system"               name="gz::sim::systems::Imu"/>
+
+    <light type="directional" name="overhead">
+      <cast_shadows>false</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>1.0 1.0 1.0 1</diffuse>
+      <specular>0.05 0.05 0.05 1</specular>
+      <direction>0 0 -1</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="col"><geometry><plane><normal>0 0 1</normal><size>20 20</size></plane></geometry></collision>
+        <visual name="vis">
+          <geometry><plane><normal>0 0 1</normal><size>20 20</size></plane></geometry>
+          <material><ambient>0.40 0.42 0.45 1</ambient><diffuse>0.40 0.42 0.45 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 6x6 room walls with correct names and heights -->
+    <model name="wall_south">
+      <static>true</static><pose>0 -3 0.175 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>6.30 0.15 0.35</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>6.30 0.15 0.35</size></box></geometry>
+          <material><ambient>0.72 0.60 0.44 1</ambient><diffuse>0.72 0.60 0.44 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_north">
+      <static>true</static><pose>0 3 0.175 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>6.30 0.15 0.35</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>6.30 0.15 0.35</size></box></geometry>
+          <material><ambient>0.72 0.60 0.44 1</ambient><diffuse>0.72 0.60 0.44 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_west">
+      <static>true</static><pose>-3 0 0.175 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.15 5.85 0.35</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.15 5.85 0.35</size></box></geometry>
+          <material><ambient>0.72 0.60 0.44 1</ambient><diffuse>0.72 0.60 0.44 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_east">
+      <static>true</static><pose>3 0 0.175 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.15 5.85 0.35</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.15 5.85 0.35</size></box></geometry>
+          <material><ambient>0.72 0.60 0.44 1</ambient><diffuse>0.72 0.60 0.44 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- GOAL marker at (2.5, 2.5) -->
+    <model name="goal_marker">
+      <static>true</static><pose>2.5 2.5 0.005 0 0 0</pose>
+      <link name="link">
+        <visual name="v">
+          <geometry><box><size>0.40 0.40 0.01</size></box></geometry>
+          <material><ambient>0.95 0.85 0.05 1</ambient><diffuse>0.95 0.85 0.05 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- DYNAMIC OBSTACLES — same trajectories as patrol_arena (mirrored in obstacle_tracker) -->
+    <actor name="dyn_obs_0">
+      <pose>-1.6 -1.5 0.06 0 0 0</pose>
+      <link name="body">
+        <visual name="v">
+          <geometry><box><size>0.22 0.22 0.12</size></box></geometry>
+          <material><ambient>0.9 0.15 0.1 1</ambient><diffuse>0.9 0.15 0.1 1</diffuse></material>
+        </visual>
+      </link>
+      <script>
+        <loop>true</loop><auto_start>true</auto_start>
+        <trajectory id="0" type="linear">
+          <waypoint><time>0</time> <pose>-1.6 -1.5 0.06 0 0 0</pose></waypoint>
+          <waypoint><time>4</time> <pose>-1.6  1.5 0.06 0 0 0</pose></waypoint>
+          <waypoint><time>8</time> <pose>-1.6 -1.5 0.06 0 0 0</pose></waypoint>
+        </trajectory>
+      </script>
+    </actor>
+
+    <actor name="dyn_obs_1">
+      <pose>1.0 -1.0 0.06 0 0 0</pose>
+      <link name="body">
+        <visual name="v">
+          <geometry><cylinder><radius>0.14</radius><length>0.12</length></cylinder></geometry>
+          <material><ambient>0.9 0.5 0.05 1</ambient><diffuse>0.9 0.5 0.05 1</diffuse></material>
+        </visual>
+      </link>
+      <script>
+        <loop>true</loop><auto_start>true</auto_start>
+        <trajectory id="0" type="linear">
+          <waypoint><time>0</time> <pose> 1.0 -1.0 0.06 0 0 0</pose></waypoint>
+          <waypoint><time>2.5</time><pose> 1.0  1.0 0.06 0 0 0</pose></waypoint>
+          <waypoint><time>5</time> <pose>-1.0  1.0 0.06 0 0 0</pose></waypoint>
+          <waypoint><time>7.5</time><pose>-1.0 -1.0 0.06 0 0 0</pose></waypoint>
+          <waypoint><time>10</time><pose> 1.0 -1.0 0.06 0 0 0</pose></waypoint>
+        </trajectory>
+      </script>
+    </actor>
+
+  </world>
+</sdf>
