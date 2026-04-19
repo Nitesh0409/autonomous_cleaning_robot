@@ -29,7 +29,7 @@ setup(
     entry_points={
         'console_scripts': [
             'robot_ui = robot.robot_ui:main',
-            'planner_local_apf = robot.planner_local_apf:main',
+            'planner_local_dwa = robot.planner_local_dwa:main',
             'planner_global_astar = robot.planner_global_astar:main',
             'cleaner_mission_manager = robot.cleaner_mission_manager:main',
             'mission_validator = robot.mission_validator:main',

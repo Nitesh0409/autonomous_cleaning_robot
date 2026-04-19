@@ -1,23 +1,10 @@
 Vision-Based Autonomous Cleaning Robot Simulation
-Project Summary
+Project Overview and System Achievements
 
-We have accomplished the following major milestones in the codebase:
+The Vision-Based Autonomous Cleaning Robot Simulation project aims to develop a high-performance robotic system capable of navigating and maintaining complex indoor environments. The core of the project is the Micro-Sentinel-Elite mobile platform, which has been meticulously modeled and simulated within a ROS 2 and Gazebo infrastructure. Our primary focus has been on achieving robust, collision-free movement in environments populated with both static and dynamic obstacles, ensuring that the robot can efficiently identify and collect debris while maintaining high operational speeds.
 
-1. Architecture and File Organization
-- Migrated code out of root into a proper package structure (robot/, config/, launch/, models/, meshes/, worlds/).
-- Moved all non-essential and outdated assets (D* Lite, DWA, scratch scripts, telemetry logs, unused worlds) into a "legacy" directory to maintain a clean workspace.
-- Updated package.xml and setup.py to export only the required paths and active ROS2 console scripts.
+A critical component of our hardware architecture is the dual-LiDAR configuration. By mounting high-precision laser scanners at both the front and rear of the robot, we have achieved a complete 360-degree field of view. This setup was chosen specifically to eliminate the blind spots that often plague single-sensor platforms, particularly during complex holonomic maneuvers like side-strafing or reversing in narrow corridors. This provides a significant redundant safety layer, ensuring the robot constantly "sees" its surroundings regardless of its orientation or travel direction. Additionally, we have integrated a front-facing RGB camera to support future visual servoing tasks. This camera is physically ghosted within the simulation, meaning it has no collision properties and does not block the LiDAR rays, allowing for a clear visual feed without interfering with the robot's physical interactions or sensor data.
 
-2. Navigation and Planners
-- Replaced reactive processing with a robust A* Global Planner (planner_global_astar.py) and Artificial Potential Field (APF) Local Planner (planner_local_apf.py).
-- Integrated Semantic Object Tracking to identify and bypass obstacles intelligently. This processes trajectory data ahead of time through a "Semantic Feature Extractor" node.
-- Merged semantic features seamlessly into local repulsive forces (APF) and the global costmap for anticipatory collision avoidance.
-- Stripped all manual 'cheat' descriptors from the codebase to present a professional sensor fusion approach.
+Regarding the navigation logic, our development journey involved a significant transition from an initial Artificial Potential Field (APF) local planner to the more advanced Dynamic Window Approach (DWA). While the APF served as a useful starting point for gradient-based avoidance, we encountered limitations regarding kinematic feasibility and "jittery" movement near obstacles. By moving to DWA, we have gained several major advantages. DWA operates directly within the robot's velocity space, searching for the optimal combination of linear and angular speeds while strictly respecting the physical acceleration and deceleration limits of the motors. This makes the robot's motion far more fluid and natural. Furthermore, DWA simulates various potential trajectories over a short time horizon, allowing it to predict and preemptively avoid collisions rather than simply reacting to repulsive forces. This predictive capability has proven much more robust against local minima traps—such as U-shaped or G-shaped obstacles—where the earlier APF logic would frequently stall.
 
-3. Simulation and Diagnostics
-- Established a master control dashboard (robot_ui.py) to launch and monitor the robot dynamically.
-- Finalized Gazebo simulation worlds (dynamic_obstacles, static_obstacles, patrol_arena) to rigorously test mapping, path planning, and autonomous cleaning loops.
-
-Next Focus:
-- Ensuring the dual LiDAR (front and rear) and newly integrated vision camera do not self-collide or interfere with physics.
-- Further performance tuning and evaluating multi-robot scaling.
+The overall system is currently managed through a comprehensive global pathfinder utilizing the A* algorithm, which provides high-level waypoints for the DWA local planner to follow. All these modules are integrated into a clean workspace structure, with the main navigation and robot logic separated from the legacy testing scripts and archived folders. Users can monitor and deploy missions through a centralized robot UI dashboard, ensuring a streamlined workflow for simulation testing and performance evaluation.

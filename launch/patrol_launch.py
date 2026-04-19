@@ -106,9 +106,8 @@ def launch_setup(context, *args, **kwargs):
             parameters=[{'use_sim_time': True}],
         ))
 
-        # ── Local planner (APF / DWA; A* uses DWA) ───────────────────────────
-        local_exec = ('planner_local_dwa' if planner in ('dwa', 'astar')
-                      else 'planner_local_apf')
+        # ── Local planner (DWA) ──────────────────────────────────────────────
+        local_exec = 'planner_local_dwa'
         nodes.append(Node(
             package='robot', executable=local_exec,
             namespace=rname,
@@ -168,7 +167,7 @@ def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument('robot_count', default_value='1',
                               description='Number of patrol robots (1-6)'),
-        DeclareLaunchArgument('planner', default_value='apf'),
+        DeclareLaunchArgument('planner', default_value='astar'),
 
         SetEnvironmentVariable('GZ_SIM_RESOURCE_PATH', [
             pkg_parent,
