@@ -1,0 +1,18 @@
+# D* Lite Global Planner Configuration
+planner_global_dstar:
+  ros__parameters:
+    # Grid Settings
+    grid_resolution: 0.1         # Meters per cell
+    grid_width: 200              # 20.0 meters
+    grid_height: 200             # 20.0 meters
+    grid_origin_x: -10.0         # Static World Origin
+    grid_origin_y: -10.0
+    
+    # Obstacle Settings
+    inflation_radius: 0.50       # Synced with 0.22 (robot) + 0.20 (buffer) + margin
+    occupancy_threshold: 0.7     # LIDAR hit probability to consider a cell "blocked"
+    
+    # Planning
+    use_sim_time: true
+    replan_frequency: 5.0        # Hz (Increased for responsive rail updates)
+    max_planning_time: 0.1       # Seconds before timing out a search
