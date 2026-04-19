@@ -6,20 +6,20 @@ import os
 
 # ── World catalogue ────────────────────────────────────────────────────────────
 WORLDS = {
-    "patrol_arena":      ("Patrol Arena — Main World 🆕",          True,  "patrol_launch.py"),
-    "arm_test":          ("Arm Test — Pick & Place",                False, "sim_gazebo.launch.py"),
-    "static_obstacles":  ("Static Obstacles — Nav Test",            False, "sim_gazebo.launch.py"),
-    "dynamic_obstacles": ("Dynamic Obstacles — Avoidance Test",     False, "sim_gazebo.launch.py"),
-    "mini_proving_ground":("Mini Proving Ground — Free Roam",       False, "sim_gazebo.launch.py"),
-    "benchmark_obstacle": ("Static Wall Pass — Benchmark",          False, "sim_gazebo.launch.py"),
-    "slalom_gauntlet":   ("The Gauntlet — Slalom",                  False, "sim_gazebo.launch.py"),
+    "patrol_arena":      ("Patrol Arena - Main World [NEW]",        True,  "patrol_launch.py"),
+    "arm_test":          ("Arm Test - Pick and Place",              False, "sim_gazebo.launch.py"),
+    "static_obstacles":  ("Static Obstacles - Nav Test",            False, "sim_gazebo.launch.py"),
+    "dynamic_obstacles": ("Dynamic Obstacles - Avoidance Test",     False, "sim_gazebo.launch.py"),
+    "mini_proving_ground":("Mini Proving Ground - Free Roam",       False, "sim_gazebo.launch.py"),
+    "benchmark_obstacle": ("Static Wall Pass - Benchmark",          False, "sim_gazebo.launch.py"),
+    "slalom_gauntlet":   ("The Gauntlet - Slalom",                  False, "sim_gazebo.launch.py"),
 }
 
 
 class RobotMissionUI:
     def __init__(self, root):
         self.root = root
-        self.root.title("🚀 Micro-Sentinel Mission Control")
+        self.root.title("Micro-Sentinel Mission Control")
         self.root.geometry("490x560")
         self.root.attributes('-topmost', 1)
         self.root.resizable(False, False)
@@ -77,7 +77,7 @@ class RobotMissionUI:
                  fg="#cba6f7", font=("Consolas", 13, "bold")).pack(pady=(0, 10))
 
         # 1. World Selection
-        wf = self._section("1 ▸ World")
+        wf = self._section("1 > World")
         labels = [v[0] for v in WORLDS.values()]
         self._world_display_map = {v[0]: k for k, v in WORLDS.items()}
 
@@ -88,21 +88,21 @@ class RobotMissionUI:
         self.world_cb.bind("<<ComboboxSelected>>", self._on_world_change)
 
         # 2a. Global Planner
-        gf = self._section("2a ▸ Global Planner")
-        ttk.Radiobutton(gf, text="D* Lite  — incremental replan (fast updates)",
+        gf = self._section("2a > Global Planner")
+        ttk.Radiobutton(gf, text="D* Lite  - incremental replan (fast updates)",
                         variable=self.planner_global_var, value="dstar").pack(anchor="w")
-        ttk.Radiobutton(gf, text="A*       — grid search + LOS smoothing",
+        ttk.Radiobutton(gf, text="A*       - grid search + LOS smoothing",
                         variable=self.planner_global_var, value="astar").pack(anchor="w")
 
         # 2b. Local Planner
-        af = self._section("2b ▸ Local Planner")
+        af = self._section("2b > Local Planner")
         ttk.Radiobutton(af, text="APF — Artificial Potential Fields",
                         variable=self.planner_local_var, value="apf").pack(anchor="w")
         ttk.Radiobutton(af, text="DWA — Dynamic Window Approach",
                         variable=self.planner_local_var, value="dwa").pack(anchor="w")
 
         # 3. Robot Count (only enabled for patrol_arena)
-        rc_frame = self._section("3 ▸ Robot Count  (Patrol Arena only)")
+        rc_frame = self._section("3 > Robot Count (Patrol Arena only)")
         rc_row = ttk.Frame(rc_frame)
         rc_row.pack(fill="x")
         ttk.Label(rc_row, text="Bots:").pack(side="left")
@@ -110,26 +110,26 @@ class RobotMissionUI:
                                     textvariable=self.robot_count_var,
                                     width=4, font=("Consolas", 10))
         self.bot_spin.pack(side="left", padx=8)
-        ttk.Label(rc_row, text="(1–6 — only applies to Patrol Arena)",
+        ttk.Label(rc_row, text="(1-6 - only applies to Patrol Arena)",
                   foreground="#6c7086", font=("Consolas", 8)).pack(side="left")
 
         # 4. Heading Mode
-        hf = self._section("4 ▸ Heading Mode")
+        hf = self._section("4 > Heading Mode")
         self.face_chk = ttk.Checkbutton(
             hf, text="Face the Path  (rotate first, then translate)",
             variable=self.face_path_var,
             command=lambda: threading.Thread(
                 target=self._send_toggle, daemon=True).start())
         self.face_chk.pack(anchor="w")
-        ttk.Label(hf, text="OFF → holonomic strafe + hold 2D pose arrow orientation",
+        ttk.Label(hf, text="OFF -> holonomic strafe + hold 2D pose arrow orientation",
                   foreground="#6c7086", font=("Consolas", 8),
                   wraplength=430, justify="left").pack(anchor="w")
 
         # 5. POV Switcher
-        pf = self._section("5 ▸ Camera POV  (Patrol Arena)")
+        pf = self._section("5 > Camera POV (Patrol Arena)")
         pov_row = ttk.Frame(pf)
         pov_row.pack(fill="x")
-        self._btn(pov_row, "⬛ Free",        "#313244", lambda: self._set_pov(None), w=8)
+        self._btn(pov_row, "Free",        "#313244", lambda: self._set_pov(None), w=8)
         for i in range(6):
             self._btn(pov_row, f"Bot {i}", "#45475a",
                       lambda idx=i: self._set_pov(f"robot_{idx}"), w=6)
@@ -137,8 +137,8 @@ class RobotMissionUI:
         # 6. Launch / Kill
         lf = ttk.Frame(self.root)
         lf.pack(fill="x", pady=12)
-        self.btn_launch = self._btn(lf, "▶  LAUNCH", "#40a02b", self._launch)
-        self.btn_kill   = self._btn(lf, "■  KILL",   "#d20f39", self._kill, "right")
+        self.btn_launch = self._btn(lf, "> LAUNCH", "#40a02b", self._launch)
+        self.btn_kill   = self._btn(lf, "X KILL",   "#d20f39", self._kill, "right")
 
         self.log_var = tk.StringVar(value="Ready.")
         tk.Label(self.root, textvariable=self.log_var, bg="#1e1e2e",
@@ -147,7 +147,7 @@ class RobotMissionUI:
         # Initial state
         self._on_world_change()
 
-    # ── Callbacks ──────────────────────────────────────────────────────────────
+    # -- Callbacks --------------------------------------------------------------
     def _on_world_change(self, _=None):
         label = self.world_cb.get()
         key   = self._world_display_map.get(label, "mini_proving_ground")
@@ -177,7 +177,7 @@ class RobotMissionUI:
             f"std_msgs/msg/Bool '{{data: {val}}}'"
         )
         label = "Face the Path" if val == "true" else "Face 2D Goal Pose"
-        self._log(f"Heading → {label}")
+        self._log(f"Heading -> {label}")
 
     def _set_pov(self, model):
         name = model or ""
@@ -220,8 +220,8 @@ class RobotMissionUI:
             f"ros2 launch robot {launch_file} {extra}"
         )
 
-        self.btn_launch.config(text="RUNNING…", state="disabled", bg="#6c7086")
-        self._log(f"Launching '{key}' ({n_bots if is_patrol else 1} bot)…")
+        self.btn_launch.config(text="RUNNING...", state="disabled", bg="#6c7086")
+        self._log(f"Launching '{key}' ({n_bots if is_patrol else 1} bot)...")
         self.sim_process = subprocess.Popen(
             ["wsl", "-d", "Ubuntu-24.04", "bash", "-c", cmd])
         threading.Timer(12.0, self._send_toggle).start()
@@ -238,7 +238,7 @@ class RobotMissionUI:
             try: self.sim_process.kill()
             except: pass
             self.sim_process = None
-        self.btn_launch.config(text="▶  LAUNCH", state="normal", bg="#40a02b")
+        self.btn_launch.config(text="> LAUNCH", state="normal", bg="#40a02b")
         self._log("Killed. Ready.")
 
 

@@ -2,7 +2,7 @@
 
 This repository contains a high-performance ROS 2 simulation of a holonomic cleaning robot equipped with dual LiDAR sensors and vision-based perception. The system utilizes advanced A* global pathfinding and a Dynamic Window Approach (DWA) local planner for robust autonomous navigation in dynamic environments.
 
-## 🚀 Key Features
+## Key Features
 
 *   **Dual-LiDAR Perception**: Complete 360-degree environmental awareness using front and rear laser scanners to eliminate blind spots.
 *   **Vision Integration**: Integrated front-facing RGB camera for automated debris identification.
@@ -10,7 +10,7 @@ This repository contains a high-performance ROS 2 simulation of a holonomic clea
 *   **Mecanum Drive**: Fully calibrated holonomic movement for precise maneuvers in tight spaces.
 *   **Centralized UI**: A dedicated master dashboard for monitoring missions and robot telemetry.
 
-## 📁 Project Structure
+## Project Structure
 
 *   **/robot**: Core navigation logic including the A* global planner, DWA local planner, and mission management.
 *   **/config**: Visualization profiles (RViz) and communication bridge settings.
@@ -18,7 +18,7 @@ This repository contains a high-performance ROS 2 simulation of a holonomic clea
 *   **/models & /meshes**: 3D geometric definitions and physical properties of the platform.
 *   **/worlds**: Simulation arenas ranging from static obstacle fields to dynamic patrol grounds.
 
-## 🛠️ Getting Started
+## Getting Started
 
 ### Prerequisites
 - ROS 2 (Humble/Jazzy)
@@ -45,7 +45,7 @@ In a new terminal:
 ros2 run robot robot_ui
 ```
 
-## 🧠 Navigation Engine
+## Navigation Engine
 
 We have transitioned from an Artificial Potential Field (APF) system to the **Dynamic Window Approach (DWA)**.
 *   **Why DWA?**: It provides superior kinematic fluidity by searching the velocity space within physical acceleration limits, resulting in smoother motion and more reliable obstacle avoidance compared to traditional force-based methods.

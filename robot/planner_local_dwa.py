@@ -47,7 +47,7 @@ class DWAPlannerNode(Node):
             lambda msg: self.scan_callback(msg, -0.13, math.pi, 'rear'), 10)
         
         self.timer = self.create_timer(0.1, self.control_loop)
-        self.get_logger().info("🌊 NITRO-DWA ONLINE (TUNED).")
+        self.get_logger().info("NITRO-DWA ONLINE (TUNED).")
 
     def odom_callback(self, msg):
         self.current_pose = msg.pose.pose

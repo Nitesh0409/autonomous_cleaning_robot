@@ -8,7 +8,7 @@ import time, math
 class MissionManager(Node):
     def __init__(self):
         super().__init__('cleaner_mission_manager')
-        self.get_logger().info("🎯 OMEGA-TRACKING ACTIVE. Final Fix Deploying.")
+        self.get_logger().info("OMEGA-TRACKING ACTIVE. Final Fix Deploying.")
         
         # Hardware Constraints
         self.L1, self.L2 = 0.12, 0.12
@@ -31,7 +31,7 @@ class MissionManager(Node):
         elif 'gauntlet' in self.world: self.default_goal = {'x': 10.0, 'y': 0.0}
         elif 'proving' in self.world: self.default_goal = {'x': 1.5, 'y': 1.5}
         
-        self.get_logger().info(f"🌍 Map: {self.world} | Default Goal: {self.default_goal}")
+        self.get_logger().info(f"Map: {self.world} | Default Goal: {self.default_goal}")
         
         # Comms
         self.goal_pub = self.create_publisher(PoseStamped, '/goal_pose', 10)
@@ -52,7 +52,7 @@ class MissionManager(Node):
         if self.cube_pose is None: self.cube_pose = Pose()
         self.cube_pose = msg
         if not self.cube_seen:
-            self.get_logger().info(f"👁️ TARGET SPOTTED at {msg.position.x:.2f}, {msg.position.y:.2f}! Starting Mission.")
+            self.get_logger().info(f"TARGET SPOTTED at {msg.position.x:.2f}, {msg.position.y:.2f}! Starting Mission.")
             self.state = 'DRIVE_TO_BLOCK'
         self.cube_seen = True
 
@@ -71,7 +71,7 @@ class MissionManager(Node):
         # Fallback Logic: If no cube seen for 5s, use default world goal
         if self.cube_pose is None:
             if time.time() - self.start_time > 5.0 and self.state == 'IDLE':
-                self.get_logger().info(f"🛰️ No dynamic target found. Engaging world benchmark goal: {self.default_goal}")
+                self.get_logger().info(f"No dynamic target found. Engaging world benchmark goal: {self.default_goal}")
                 self.cube_pose = Pose()
                 self.cube_pose.position.x = float(self.default_goal['x'])
                 self.cube_pose.position.y = float(self.default_goal['y'])
@@ -97,21 +97,21 @@ class MissionManager(Node):
             dist_to_target = math.sqrt((rx - target_stop_x)**2 + (ry - target_stop_y)**2)
             if dist_to_target < 0.10:
                 if self.cube_seen:
-                    self.get_logger().info("🏆 [PICKUP] Target Acquired. Solving IK...")
+                    self.get_logger().info("[PICKUP] Target Acquired. Solving IK...")
                     self.state = 'PICKING_UP'
                     dx = cx - (rx + self.pedestal_offset_x)
                     dz = self.cube_pose.position.z - self.pedestal_height
                     j1, j2 = self.solve_ik(dx, dz)
                     self.perform_pickup(j1, j2)
                 else:
-                    self.get_logger().info("🏁 [SUCCESS] Benchmark Goal Reached.")
+                    self.get_logger().info("[SUCCESS] Benchmark Goal Reached.")
                     self.state = 'FINISH'
 
         elif self.state == 'DRIVE_TO_DUMPSTER':
             self.send_goal({'x': 0.0, 'y': 0.0})
             dist_to_home = math.sqrt(rx**2 + ry**2)
             if dist_to_home < 0.15:
-                self.get_logger().info("🏁 [SUCCESS] Garbage Deposited.")
+                self.get_logger().info("[SUCCESS] Garbage Deposited.")
                 self.grab_pub.publish(Bool(data=False))
                 self.state = 'FINISH'
 
@@ -126,7 +126,7 @@ class MissionManager(Node):
         self.j2_pub.publish(Float64(data=j2))
         time.sleep(4.0) # WAIT FOR STABILIZATION
         
-        self.get_logger().info("🧲 GRIP ENGAGED.")
+        self.get_logger().info("GRIP ENGAGED.")
         self.grab_pub.publish(Bool(data=True))
         time.sleep(2.0)
         
